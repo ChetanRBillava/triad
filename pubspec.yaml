@@ -3,7 +3,7 @@ description: My first flutter assignment at Niveus.
 
 publish_to: 'none'
 
-version: 1.0.0+1
+version: 1.0.2+3
 
 environment:
   sdk: '>=2.19.2 <3.0.0'
@@ -12,6 +12,10 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.2
+  google_fonts:
+  sizer:
+  flutter_bloc:
+  equatable:
 
 dev_dependencies:
   flutter_test:
@@ -20,3 +24,5 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/
