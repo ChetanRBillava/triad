@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 import '../../core/constants/bools.dart';
 
 class CustomPrint {

@@ -23,6 +23,18 @@ Here we write the updates of future releases.
 ### Security
 
 
+## [1.0.2] - 15-02-2023
+
+### Added
+- Router sub directory in Presentation directory, Exceptions and Themes sub directory in Core directory
+- Logic main directory and cubit sub directory
+- App router file for routing and Route exception file for handling its exception
+- Flutter bloc and equatable plugins in "pubspec.yaml" file
+
+### Changed
+- Theme color references from generic to cubit oriented
+
+
 ## [1.0.1] - 15-02-2023
 
 ### Added
@@ -34,6 +46,7 @@ Here we write the updates of future releases.
 - Screens Home screen and Splash screen
 - Utility files Custom text, Custom button and Custom print
 - Google fonts and Sizer plugin in "pubspec.yaml" file
+- Initialised Sizer plugin above the material app widget
 
 ### Changed
 - Custom apk name in "android/app/build.gradle" as "Flutter assignment V1.0.1.apk" which will hereby reflect the latest build version
