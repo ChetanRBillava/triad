@@ -1,50 +1,195 @@
+import 'package:assignment/logic/cubit/app_theme_cubit.dart';
+import 'package:assignment/logic/cubit/home_cubit.dart';
+import 'package:assignment/presentation/utils/custom_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sizer/sizer.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key, required this.title});
-
-  final String title;
+  const HomeScreen({super.key});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        appBar: AppBar(
-          title: Text(widget.title),
-        ),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              const Text(
-                'You have pushed the button this many times:',
+    return BlocBuilder<AppThemeCubit, AppThemeState>(
+      builder: (context, appThemeState) {
+        return BlocBuilder<HomeCubit, HomeState>(
+          builder: (context, homeState) {
+            return SafeArea(
+              child: Scaffold(
+                  body: Stack(
+                    children: [
+                      ///top tile
+                      Positioned(
+                        top: 20.h,
+                        left: 25.w,
+                        right: 25.w,
+                        child: AnimatedContainer(
+                          duration: const Duration(seconds: 2),
+                          width: 50.w,
+                          height: 50.w,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.all(Radius.circular(5.w)),
+                            boxShadow: [
+                              BoxShadow(
+                                color: (appThemeState as AppThemeSet).themeClass.splashBikeTileShadow,
+                                offset: const Offset(0, 0),
+                                blurRadius: 30.0,
+                                spreadRadius: 2.0,
+                              )
+                            ],
+                          ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              Icon(
+                                homeState.position==0?Icons.directions_bike :
+                                homeState.position == 1 ? Icons.quiz : Icons.restaurant,
+                                size: 30.w,
+                              ),
+                              CustomText(
+                                textString: homeState.position==0?'BIKE':
+                                homeState.position==1?'QUIZ':'FOOD',
+                                textFontSize: 10.w,
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                      ///left tile
+                      Positioned(
+                        top: 20.h + 70.w,
+                        left: 15.w,
+                        child: AnimatedContainer(
+                          duration: const Duration(seconds: 2),
+                          width: 20.w,
+                          height: 20.w,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: const BorderRadius.all(Radius.circular(15.0)),
+                            boxShadow: [
+                              BoxShadow(
+                                color: appThemeState.themeClass.splashQuizTileShadow,
+                                offset: const Offset(0, 0),
+                                blurRadius: 15,
+                                spreadRadius: 1.0,
+                              )
+                            ],
+                          ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              Icon(
+                                homeState.position==1?Icons.directions_bike :
+                                homeState.position == 2 ? Icons.quiz : Icons.restaurant,
+                                size: 12.w,
+                              ),
+                              CustomText(
+                                textString: homeState.position==1?'BIKE':
+                                homeState.position==2?'QUIZ':'FOOD',
+                                textFontSize: 3.w,
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                      ///right tile
+                      Positioned(
+                        top: 20.h + 70.w,
+                        right: 15.w,
+                        child: AnimatedContainer(
+                          duration: const Duration(seconds: 2),
+                          width: 20.w,
+                          height: 20.w,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: const BorderRadius.all(Radius.circular(15.0)),
+                            boxShadow: [
+                              BoxShadow(
+                                color: appThemeState.themeClass.splashFoodTileShadow,
+                                offset: const Offset(0, 0),
+                                blurRadius: 15,
+                                spreadRadius: 1.0,
+                              )
+                            ],
+                          ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              Icon(
+                                homeState.position==2?Icons.directions_bike :
+                                homeState.position == 0 ? Icons.quiz : Icons.restaurant,
+                                size: 12.w,
+                              ),
+                              CustomText(
+                                textString: homeState.position==2?'BIKE':
+                                homeState.position==0?'QUIZ':'FOOD',
+                                textFontSize: 3.w,
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                      ///back
+                      Positioned(
+                        top: 45.h + 70.w,
+                        left: 30.w,
+                        child: GestureDetector(
+                          onTap: (){
+                            BlocProvider.of<HomeCubit>(context).changePosition(false);
+                          },
+                          child: Container(
+                            width: 10.w,
+                            height: 10.w,
+                            alignment: Alignment.center,
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: const BorderRadius.all(Radius.circular(10.0)),
+                                border: Border.all(color: Colors.black)
+                            ),
+                            child: Icon(
+                              Icons.arrow_back_ios,
+                              size: 7.w,
+                            ),
+                          ),
+                        ),
+                      ),
+                      ///next
+                      Positioned(
+                        top: 45.h + 70.w,
+                        right: 30.w,
+                        child: GestureDetector(
+                          onTap: (){
+                            BlocProvider.of<HomeCubit>(context).changePosition(true);
+                          },
+                          child: Container(
+                            width: 10.w,
+                            height: 10.w,
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: const BorderRadius.all(Radius.circular(10.0)),
+                                border: Border.all(color: Colors.black)
+                            ),
+                            child: Icon(
+                              Icons.arrow_forward_ios,
+                              size: 7.w,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  )
               ),
-              Text(
-                '$_counter',
-                style: Theme.of(context).textTheme.headlineMedium,
-              ),
-            ],
-          ),
-        ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: _incrementCounter,
-          tooltip: 'Increment',
-          child: const Icon(Icons.add),
-        ),
-      ),
+            );
+          },
+        );
+      },
     );
   }
 }

@@ -17,7 +17,7 @@ class AppRouter {
         );
       case home:
         return MaterialPageRoute(
-          builder: (_) => const HomeScreen(title: 'Flutter Demo Home Page'),
+          builder: (_) => const HomeScreen(),
         );
       default:
         throw const RouteException('Route not found!');

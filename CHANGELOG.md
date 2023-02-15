@@ -23,6 +23,16 @@ Here we write the updates of future releases.
 ### Security
 
 
+## [1.0.3] - 15-02-2023
+
+### Added
+- Cubit set for home screen
+- Shadow colors in theme file for respective tiles of splash screen
+
+### Changed
+- Home screen as per the prototype
+
+
 ## [1.0.2] - 15-02-2023
 
 ### Added

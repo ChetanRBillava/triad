@@ -12,8 +12,7 @@ import '../../presentation/utils/custom_print.dart';
 part 'app_theme_state.dart';
 
 class AppThemeCubit extends Cubit<AppThemeState> {
-  AppThemeCubit() : super(const AppThemeInitial(
-      brightness: Brightness.light));
+  AppThemeCubit() : super(const AppThemeInitial(brightness: Brightness.light));
 
   void setLightTheme() {
     LightTheme lightTheme = LightTheme();
