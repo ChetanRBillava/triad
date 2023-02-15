@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sizer/sizer.dart';
 
+import '../router/app_router.dart';
+
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -29,36 +31,44 @@ class _HomeScreenState extends State<HomeScreen> {
                         top: 20.h,
                         left: 25.w,
                         right: 25.w,
-                        child: AnimatedContainer(
-                          duration: const Duration(seconds: 2),
-                          width: 50.w,
-                          height: 50.w,
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.all(Radius.circular(5.w)),
-                            boxShadow: [
-                              BoxShadow(
-                                color: (appThemeState as AppThemeSet).themeClass.splashBikeTileShadow,
-                                offset: const Offset(0, 0),
-                                blurRadius: 30.0,
-                                spreadRadius: 2.0,
-                              )
-                            ],
-                          ),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              Icon(
-                                homeState.position==0?Icons.directions_bike :
-                                homeState.position == 1 ? Icons.quiz : Icons.restaurant,
-                                size: 30.w,
-                              ),
-                              CustomText(
-                                textString: homeState.position==0?'BIKE':
-                                homeState.position==1?'QUIZ':'FOOD',
-                                textFontSize: 10.w,
-                              )
-                            ],
+                        child: GestureDetector(
+                          onTap: (){
+                            if(homeState.position==1) {
+                              Navigator.of(context).pushNamed(AppRouter.quizHome);
+                            }
+                          },
+                          child: Container(
+                            width: 50.w,
+                            height: 50.w,
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.all(Radius.circular(5.w)),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: homeState.position==0?(appThemeState as AppThemeSet).themeClass.splashBikeTileShadow:
+                                  homeState.position==1?(appThemeState as AppThemeSet).themeClass.splashQuizTileShadow:
+                                  (appThemeState as AppThemeSet).themeClass.splashFoodTileShadow,
+                                  offset: const Offset(0, 0),
+                                  blurRadius: 30.0,
+                                  spreadRadius: 2.0,
+                                )
+                              ],
+                            ),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Icon(
+                                  homeState.position==0?Icons.directions_bike :
+                                  homeState.position == 1 ? Icons.quiz : Icons.restaurant,
+                                  size: 30.w,
+                                ),
+                                CustomText(
+                                  textString: homeState.position==0?'BIKE':
+                                  homeState.position==1?'QUIZ':'FOOD',
+                                  textFontSize: 10.w,
+                                )
+                              ],
+                            ),
                           ),
                         ),
                       ),
@@ -66,8 +76,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       Positioned(
                         top: 20.h + 70.w,
                         left: 15.w,
-                        child: AnimatedContainer(
-                          duration: const Duration(seconds: 2),
+                        child: Container(
                           width: 20.w,
                           height: 20.w,
                           decoration: BoxDecoration(
@@ -75,7 +84,9 @@ class _HomeScreenState extends State<HomeScreen> {
                             borderRadius: const BorderRadius.all(Radius.circular(15.0)),
                             boxShadow: [
                               BoxShadow(
-                                color: appThemeState.themeClass.splashQuizTileShadow,
+                                color: homeState.position==1?(appThemeState).themeClass.splashBikeTileShadow:
+                                homeState.position==2?(appThemeState).themeClass.splashQuizTileShadow:
+                                (appThemeState).themeClass.splashFoodTileShadow,
                                 offset: const Offset(0, 0),
                                 blurRadius: 15,
                                 spreadRadius: 1.0,
@@ -103,8 +114,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       Positioned(
                         top: 20.h + 70.w,
                         right: 15.w,
-                        child: AnimatedContainer(
-                          duration: const Duration(seconds: 2),
+                        child: Container(
                           width: 20.w,
                           height: 20.w,
                           decoration: BoxDecoration(
@@ -112,7 +122,9 @@ class _HomeScreenState extends State<HomeScreen> {
                             borderRadius: const BorderRadius.all(Radius.circular(15.0)),
                             boxShadow: [
                               BoxShadow(
-                                color: appThemeState.themeClass.splashFoodTileShadow,
+                                color: homeState.position==2?(appThemeState).themeClass.splashBikeTileShadow:
+                                homeState.position==0?(appThemeState).themeClass.splashQuizTileShadow:
+                                (appThemeState).themeClass.splashFoodTileShadow,
                                 offset: const Offset(0, 0),
                                 blurRadius: 15,
                                 spreadRadius: 1.0,

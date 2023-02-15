@@ -34,6 +34,10 @@ class AppTheme {
   late Color splashQuizTileShadow;
   late Color splashFoodTileShadow;
 
+  ///quiz screen
+  late Color quizBackgroundColor;
+  late Color quizButtonBackgroundColor;
+
 }
 
 class LightTheme extends AppTheme{
@@ -125,84 +129,13 @@ class LightTheme extends AppTheme{
   @override
   // TODO: implement primary
   Color get splashFoodTileShadow => const Color(0xffDB944B);
-}
 
-class DarkTheme extends AppTheme{
-  DarkTheme();
 
-  ///main
+  ///quiz screen
   @override
   // TODO: implement primary
-  Color get backgroundColor => const Color(0xff000000);
-
+  Color get quizBackgroundColor => const Color(0xffA372F2);
   @override
   // TODO: implement primary
-  Color get formFieldBackgroundColor => const Color(0xff000000);
-
-  @override
-  // TODO: implement primary
-  Color get enabledFormFieldBorderColor => const Color(0xffffffff);
-
-  @override
-  // TODO: implement primary
-  Color get focusedFormFieldBorderColor => const Color(0xff000000);
-
-  @override
-  // TODO: implement primary
-  Color get appbarBackgroundColor => const Color(0xff07274d);
-
-  @override
-  // TODO: implement primary
-  Color get primaryColor => const Color(0xff07274d);
-
-  @override
-  // TODO: implement primary
-  Color get secondaryColor => const Color(0xff000000);
-
-  ///selections
-  @override
-  // TODO: implement primary
-  Color get successColor => const Color(0xff1a6513);
-
-  @override
-  // TODO: implement primary
-  Color get dangerColor => const Color(0xff8f1818);
-
-  @override
-  // TODO: implement primary
-  Color get infoColor => const Color(0xff07274d);
-
-  @override
-  // TODO: implement primary
-  Color get warningColor => const Color(0xffa95801);
-
-  ///texts
-  @override
-  // TODO: implement primary
-  Color get textColor_1 => const Color(0xffffffff);
-
-  @override
-  // TODO: implement primary
-  Color get textColor_2 => const Color(0xff000000);
-
-  @override
-  // TODO: implement primary
-  Color get textCaptionColor => const Color(0xffb49f9f);
-
-  ///button
-  @override
-  // TODO: implement primary
-  Color get buttonBackgroundColor => const Color(0xff07274d);
-
-  @override
-  // TODO: implement primary
-  Color get buttonBackgroundColor2 => const Color(0xff000000);
-
-  ///constant colors
-  @override
-  // TODO: implement primary
-  Color get white => const Color(0xffffffff);
-  @override
-  // TODO: implement primary
-  Color get black => const Color(0xff000000);
+  Color get quizButtonBackgroundColor => const Color(0xffA372F2);
 }

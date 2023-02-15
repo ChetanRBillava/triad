@@ -23,6 +23,15 @@ Here we write the updates of future releases.
 ### Security
 
 
+## [1.0.4] - 15-02-2023
+
+### Added
+- Quiz questions file to store the questions for the quiz module
+- Quiz home screen, questions screen and quiz results screen
+- Custom text field widget in utils sub folder
+- Widgets sub folder in presentation main folder and added dialogs file in it
+
+
 ## [1.0.3] - 15-02-2023
 
 ### Added
