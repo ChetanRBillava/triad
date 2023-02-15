@@ -29,6 +29,11 @@ class AppTheme {
   late Color white;
   late Color black;
 
+  ///splash screen
+  late Color splashBikeTileShadow;
+  late Color splashQuizTileShadow;
+  late Color splashFoodTileShadow;
+
 }
 
 class LightTheme extends AppTheme{
@@ -109,6 +114,17 @@ class LightTheme extends AppTheme{
   @override
   // TODO: implement primary
   Color get black => const Color(0xff000000);
+
+  ///splash screen
+  @override
+  // TODO: implement primary
+  Color get splashBikeTileShadow => const Color(0xff00FA19);
+  @override
+  // TODO: implement primary
+  Color get splashQuizTileShadow => const Color(0xff6508FC);
+  @override
+  // TODO: implement primary
+  Color get splashFoodTileShadow => const Color(0xffDB944B);
 }
 
 class DarkTheme extends AppTheme{
