@@ -19,7 +19,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<AppThemeCubit, AppThemeState>(
-      builder: (context, appThemeState) {
+      builder: (context, themeState) {
         return BlocBuilder<HomeCubit, HomeState>(
           builder: (context, homeState) {
             return SafeArea(
@@ -36,6 +36,9 @@ class _HomeScreenState extends State<HomeScreen> {
                             if(homeState.position==1) {
                               Navigator.of(context).pushNamed(AppRouter.quizHome);
                             }
+                            else if(homeState.position==2) {
+                              Navigator.of(context).pushNamed(AppRouter.foodLogin);
+                            }
                           },
                           child: Container(
                             width: 50.w,
@@ -45,9 +48,9 @@ class _HomeScreenState extends State<HomeScreen> {
                               borderRadius: BorderRadius.all(Radius.circular(5.w)),
                               boxShadow: [
                                 BoxShadow(
-                                  color: homeState.position==0?(appThemeState as AppThemeSet).themeClass.splashBikeTileShadow:
-                                  homeState.position==1?(appThemeState as AppThemeSet).themeClass.splashQuizTileShadow:
-                                  (appThemeState as AppThemeSet).themeClass.splashFoodTileShadow,
+                                  color: homeState.position==0?(themeState as AppThemeSet).themeClass.splashBikeTileShadow:
+                                  homeState.position==1?(themeState as AppThemeSet).themeClass.splashQuizTileShadow:
+                                  (themeState as AppThemeSet).themeClass.splashFoodTileShadow,
                                   offset: const Offset(0, 0),
                                   blurRadius: 30.0,
                                   spreadRadius: 2.0,
@@ -84,9 +87,9 @@ class _HomeScreenState extends State<HomeScreen> {
                             borderRadius: const BorderRadius.all(Radius.circular(15.0)),
                             boxShadow: [
                               BoxShadow(
-                                color: homeState.position==1?(appThemeState).themeClass.splashBikeTileShadow:
-                                homeState.position==2?(appThemeState).themeClass.splashQuizTileShadow:
-                                (appThemeState).themeClass.splashFoodTileShadow,
+                                color: homeState.position==1?(themeState).themeClass.splashBikeTileShadow:
+                                homeState.position==2?(themeState).themeClass.splashQuizTileShadow:
+                                (themeState).themeClass.splashFoodTileShadow,
                                 offset: const Offset(0, 0),
                                 blurRadius: 15,
                                 spreadRadius: 1.0,
@@ -122,9 +125,9 @@ class _HomeScreenState extends State<HomeScreen> {
                             borderRadius: const BorderRadius.all(Radius.circular(15.0)),
                             boxShadow: [
                               BoxShadow(
-                                color: homeState.position==2?(appThemeState).themeClass.splashBikeTileShadow:
-                                homeState.position==0?(appThemeState).themeClass.splashQuizTileShadow:
-                                (appThemeState).themeClass.splashFoodTileShadow,
+                                color: homeState.position==2?(themeState).themeClass.splashBikeTileShadow:
+                                homeState.position==0?(themeState).themeClass.splashQuizTileShadow:
+                                (themeState).themeClass.splashFoodTileShadow,
                                 offset: const Offset(0, 0),
                                 blurRadius: 15,
                                 spreadRadius: 1.0,

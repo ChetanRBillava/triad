@@ -30,10 +30,10 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<AppThemeCubit, AppThemeState>(
-      builder: (context, appThemeState) {
+      builder: (context, themeState) {
         return SafeArea(
             child: Scaffold(
-              backgroundColor: (appThemeState as AppThemeSet).themeClass.backgroundColor,
+              backgroundColor: (themeState as AppThemeSet).themeClass.backgroundColor,
               body: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

@@ -23,6 +23,15 @@ Here we write the updates of future releases.
 ### Security
 
 
+## [1.0.5] - 16-02-2023
+
+### Added
+- Screens for food module as per the figma design
+- Lottie plugin
+- Order complete json file for lottie plugin
+- Custom separator widget
+
+
 ## [1.0.4] - 15-02-2023
 
 ### Added

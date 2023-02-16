@@ -15,6 +15,11 @@ class CustomButton extends StatefulWidget {
     this.onTapEvent,
     this.buttonSize,
     this.borderRadius,
+    this.onlyRadius,
+    this.borderRadiusTL,
+    this.borderRadiusTR,
+    this.borderRadiusBL,
+    this.borderRadiusBR,
     this.buttonTextSize,
     this.borderColor,
     this.fontWeight,
@@ -30,7 +35,9 @@ class CustomButton extends StatefulWidget {
   ///optional
   Function()? onTapEvent;
   String? buttonText;
-  double? buttonSize, borderRadius, buttonTextSize, iconSize;
+  double? buttonSize, buttonTextSize, iconSize;
+  bool? onlyRadius;
+  double? borderRadius, borderRadiusTL, borderRadiusTR, borderRadiusBL, borderRadiusBR;
   Color? borderColor, buttonTextColor, iconColor;
   FontWeight? fontWeight;
   TextAlign? textAlign;
@@ -48,7 +55,14 @@ class _CustomButtonState extends State<CustomButton> {
         decoration: BoxDecoration(
             color: widget.buttonColor,
             border: Border.all(color: widget.borderColor??widget.buttonColor),
-            borderRadius: BorderRadius.all(
+            borderRadius: widget.onlyRadius == true?
+            BorderRadius.only(
+              topLeft: Radius.circular(widget.borderRadiusTL??0.w),
+              topRight: Radius.circular(widget.borderRadiusTR??0.w),
+              bottomLeft: Radius.circular(widget.borderRadiusBL??0.w),
+              bottomRight: Radius.circular(widget.borderRadiusBR??0.w),
+            ):
+            BorderRadius.all(
                 Radius.circular(widget.borderRadius??0.w)
             )
         ),
