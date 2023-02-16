@@ -13,6 +13,7 @@ class CustomText extends StatefulWidget {
     this.textColor,
     this.textAlign,
     this.fontWeight,
+    this.overflow,
   }) : super(key: key);
 
 
@@ -21,6 +22,7 @@ class CustomText extends StatefulWidget {
   final Color? textColor;
   final TextAlign? textAlign;
   final FontWeight? fontWeight;
+  final TextOverflow? overflow;
 
   @override
   State<CustomText> createState() => _CustomTextState();
@@ -30,12 +32,13 @@ class _CustomTextState extends State<CustomText> {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<AppThemeCubit, AppThemeState>(
-      builder: (context, appThemeState) {
+      builder: (context, themeState) {
         return Text(
           widget.textString,
           textAlign: widget.textAlign ?? TextAlign.start,
+          overflow: widget.overflow??TextOverflow.visible,
           style: GoogleFonts.poppins(
-            color: widget.textColor??(appThemeState as AppThemeSet).themeClass.textColor_1,
+            color: widget.textColor??(themeState as AppThemeSet).themeClass.textColor_1,
             fontSize: widget.textFontSize ?? 12.0.sp,
             fontWeight: widget.fontWeight ?? FontWeight.normal,
           ),

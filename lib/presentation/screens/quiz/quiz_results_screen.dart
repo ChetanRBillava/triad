@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sizer/sizer.dart';
 
+import '../../router/app_router.dart';
 import '../../utils/custom_text.dart';
 
 class QuizResultsScreen extends StatefulWidget {
@@ -22,6 +23,23 @@ class _QuizResultsScreenState extends State<QuizResultsScreen> {
               backgroundColor: (themeState as AppThemeSet).themeClass.quizBackgroundColor,
               body: Column(
                 children: [
+                  Row(
+                    children: [
+                      GestureDetector(
+                        onTap: (){
+                          Navigator.of(context).pushNamed(AppRouter.home);
+                        },
+                        child: Padding(
+                          padding: EdgeInsets.all(5.w),
+                          child: Icon(
+                            Icons.home,
+                            size: 30.sp,
+                            color: themeState.themeClass.textColor_2,
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [

@@ -6,15 +6,16 @@ class AppTheme {
   late Color formFieldBackgroundColor;
   late Color enabledFormFieldBorderColor;
   late Color focusedFormFieldBorderColor;
-  late Color appbarBackgroundColor;
-  late Color primaryColor;
-  late Color secondaryColor;
 
   ///selections
   late Color successColor;
   late Color dangerColor;
   late Color infoColor;
   late Color warningColor;
+
+  late Color vegColor;
+  late Color nonvegColor;
+  late Color eggColor;
 
   ///texts
   late Color textColor_1;
@@ -38,6 +39,14 @@ class AppTheme {
   late Color quizBackgroundColor;
   late Color quizButtonBackgroundColor;
 
+  ///quiz screen
+  late Color foodBackgroundColor;
+  late Color foodPrimaryColor;
+  late Color foodFormBackgroundColor;
+  late Color foodButtonColor;
+  late Color foodTextColor;
+  late Color foodAppBarColor;
+
 }
 
 class LightTheme extends AppTheme{
@@ -47,57 +56,46 @@ class LightTheme extends AppTheme{
   @override
   // TODO: implement primary
   Color get backgroundColor => const Color(0xffffffff);
-
   @override
   // TODO: implement primary
-  Color get formFieldBackgroundColor => const Color(0xffffffff);
-
+  Color get formFieldBackgroundColor => const Color(0xffE0DBDB);
   @override
   // TODO: implement primary
-  Color get enabledFormFieldBorderColor => const Color(0xff000000);
-
+  Color get enabledFormFieldBorderColor => const Color(0xffE0DBDB);
   @override
   // TODO: implement primary
-  Color get focusedFormFieldBorderColor => const Color(0xffffffff);
-
-  @override
-  // TODO: implement primary
-  Color get appbarBackgroundColor => const Color(0xff719bf1);
-
-  @override
-  // TODO: implement primary
-  Color get primaryColor => const Color(0xff719bf1);
-
-  @override
-  // TODO: implement primary
-  Color get secondaryColor => const Color(0xffffffff);
+  Color get focusedFormFieldBorderColor => const Color(0xffE0DBDB);
 
   ///selections
   @override
   // TODO: implement primary
   Color get successColor => const Color(0xff2ee719);
-
   @override
   // TODO: implement primary
   Color get dangerColor => const Color(0xfff60f0f);
-
   @override
   // TODO: implement primary
   Color get infoColor => const Color(0xff719bf1);
-
   @override
   // TODO: implement primary
   Color get warningColor => const Color(0xffffd719);
+  @override
+  // TODO: implement primary
+  Color get vegColor => const Color(0xff2dff00);
+  @override
+  // TODO: implement primary
+  Color get nonvegColor => const Color(0xffff0000);
+  @override
+  // TODO: implement primary
+  Color get eggColor => const Color(0xff440505);
 
   ///texts
   @override
   // TODO: implement primary
   Color get textColor_1 => const Color(0xff000000);
-
   @override
   // TODO: implement primary
   Color get textColor_2 => const Color(0xffffffff);
-
   @override
   // TODO: implement primary
   Color get textCaptionColor => const Color(0xff616060);
@@ -106,7 +104,6 @@ class LightTheme extends AppTheme{
   @override
   // TODO: implement primary
   Color get buttonBackgroundColor => const Color(0xff5789ee);
-
   @override
   // TODO: implement primary
   Color get buttonBackgroundColor2 => const Color(0xffffffff);
@@ -138,4 +135,25 @@ class LightTheme extends AppTheme{
   @override
   // TODO: implement primary
   Color get quizButtonBackgroundColor => const Color(0xffA372F2);
+
+
+  ///quiz screen
+  @override
+  // TODO: implement primary
+  Color get foodBackgroundColor => const Color(0xffDB944B);
+  @override
+  // TODO: implement primary
+  Color get foodPrimaryColor => const Color(0xffDB944B);
+  @override
+  // TODO: implement primary
+  Color get foodFormBackgroundColor => const Color(0xffffffff);
+  @override
+  // TODO: implement primary
+  Color get foodButtonColor => const Color(0xffDB944B);
+  @override
+  // TODO: implement primary
+  Color get foodTextColor => const Color(0xffDB944B);
+  @override
+  // TODO: implement primary
+  Color get foodAppBarColor => const Color(0xffDB944B);
 }
