@@ -9,6 +9,7 @@ class CustomText extends StatefulWidget {
   const CustomText({
     Key? key,
     required this.textString,
+    this.fontFamily,
     this.textFontSize,
     this.textColor,
     this.textAlign,
@@ -18,6 +19,7 @@ class CustomText extends StatefulWidget {
 
 
   final String textString;
+  final String? fontFamily;
   final double? textFontSize;
   final Color? textColor;
   final TextAlign? textAlign;
@@ -37,7 +39,11 @@ class _CustomTextState extends State<CustomText> {
           widget.textString,
           textAlign: widget.textAlign ?? TextAlign.start,
           overflow: widget.overflow??TextOverflow.visible,
-          style: GoogleFonts.poppins(
+          style: widget.fontFamily=='faster one'?GoogleFonts.fasterOne(
+            color: widget.textColor??(themeState as AppThemeSet).themeClass.textColor_1,
+            fontSize: widget.textFontSize ?? 12.0.sp,
+            fontWeight: widget.fontWeight ?? FontWeight.normal,
+          ):GoogleFonts.poppins(
             color: widget.textColor??(themeState as AppThemeSet).themeClass.textColor_1,
             fontSize: widget.textFontSize ?? 12.0.sp,
             fontWeight: widget.fontWeight ?? FontWeight.normal,

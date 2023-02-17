@@ -15,6 +15,8 @@ class CustomTextField extends StatefulWidget {
     this.obscureText,
     this.labelText,
     this.labelTextFontSize,
+    this.labelTextColor,
+    this.labelFontWeight,
     this.hintText,
     this.hintTextFontSize,
     this.prefixIcon,
@@ -40,10 +42,11 @@ class CustomTextField extends StatefulWidget {
   final TextInputType? textInputType;
   final int? maxLength, minLines, maxLines;
   final double? focusedBorderWidth, enabledBorderWidth;
-  final Color? focusedBorderColor, enabledBorderColor, fillColor;
+  final Color? focusedBorderColor, enabledBorderColor, fillColor, labelTextColor;
   final IconData? prefixIcon;
   final Widget? suffixIcon;
   final String? Function(String?)? validator;
+  final FontWeight? labelFontWeight;
 
   @override
   State<CustomTextField> createState() => _CustomTextFieldState();
@@ -63,7 +66,8 @@ class _CustomTextFieldState extends State<CustomTextField> {
               child: CustomText(
                 textString: widget.labelText as String,
                 textFontSize: 14.sp,
-                textColor: (themeState as AppThemeSet).themeClass.textColor_1,
+                textColor: widget.labelTextColor??(themeState as AppThemeSet).themeClass.textColor_1,
+                fontWeight: widget.labelFontWeight??FontWeight.normal,
               ),
             ):const SizedBox.shrink(),
             TextFormField(

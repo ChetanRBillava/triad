@@ -39,6 +39,9 @@ class _HomeScreenState extends State<HomeScreen> {
                             else if(homeState.position==2) {
                               Navigator.of(context).pushNamed(AppRouter.foodLogin);
                             }
+                            else{
+                              Navigator.of(context).pushNamed(AppRouter.bikeLogin);
+                            }
                           },
                           child: Container(
                             width: 50.w,

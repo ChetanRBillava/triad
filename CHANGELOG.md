@@ -23,6 +23,17 @@ Here we write the updates of future releases.
 ### Security
 
 
+## [1.0.6] - 17-02-2023
+
+### Added
+- Screens for bike module as per the figma design
+- Image assets for the design
+
+### Changed
+- Custom button structure from Inkwell to Gesture detector
+- Custom text to toggle between multiple google fonts
+
+
 ## [1.0.5] - 16-02-2023
 
 ### Added

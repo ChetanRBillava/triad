@@ -39,13 +39,20 @@ class AppTheme {
   late Color quizBackgroundColor;
   late Color quizButtonBackgroundColor;
 
-  ///quiz screen
+  ///food screen
   late Color foodBackgroundColor;
   late Color foodPrimaryColor;
   late Color foodFormBackgroundColor;
   late Color foodButtonColor;
   late Color foodTextColor;
   late Color foodAppBarColor;
+
+  ///bike screen
+  late Color bikeBackgroundColor;
+  late Color bikeLoginBackgroundColor;
+  late Color bikeButtonBackgroundColor;
+  late Color bikeAppBarColor;
+  late Color bikeBorderColor;
 
 }
 
@@ -137,7 +144,7 @@ class LightTheme extends AppTheme{
   Color get quizButtonBackgroundColor => const Color(0xffA372F2);
 
 
-  ///quiz screen
+  ///food screen
   @override
   // TODO: implement primary
   Color get foodBackgroundColor => const Color(0xffDB944B);
@@ -156,4 +163,22 @@ class LightTheme extends AppTheme{
   @override
   // TODO: implement primary
   Color get foodAppBarColor => const Color(0xffDB944B);
+
+
+  ///bike screen
+  @override
+  // TODO: implement primary
+  Color get bikeBackgroundColor => const Color(0xffDDECDF);
+  @override
+  // TODO: implement primary
+  Color get bikeLoginBackgroundColor => const Color(0xff00AD11);
+  @override
+  // TODO: implement primary
+  Color get bikeButtonBackgroundColor => const Color(0xffffffff);
+  @override
+  // TODO: implement primary
+  Color get bikeAppBarColor => const Color(0xff00AD11);
+  @override
+  // TODO: implement primary
+  Color get bikeBorderColor => const Color(0xff216709);
 }
