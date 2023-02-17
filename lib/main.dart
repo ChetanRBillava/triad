@@ -1,3 +1,4 @@
+import 'package:assignment/logic/bloc/quiz_bloc.dart';
 import 'package:assignment/logic/cubit/app_theme_cubit.dart';
 import 'package:assignment/logic/cubit/home_cubit.dart';
 import 'package:assignment/presentation/router/app_router.dart';
@@ -24,6 +25,9 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => HomeCubit(),
+        ),
+        BlocProvider(
+          create: (context) => QuizBloc(),
         ),
       ],
       child: Sizer(builder: (context, constraints, orientation) {

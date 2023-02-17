@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../core/constants/strings.dart';
+import '../../logic/bloc/quiz_bloc.dart';
 import '../../logic/cubit/app_theme_cubit.dart';
 import '../router/app_router.dart';
 import '../utils/custom_button.dart';
@@ -64,7 +65,7 @@ quizCompletionDialog(BuildContext context) {
                       fontWeight: FontWeight.bold,
                       onTapEvent: (){
                         customPrint.myCustomPrint(ctrl.text);
-                        Navigator.of(context).pushNamed(AppRouter.quizResults);
+                        BlocProvider.of<QuizBloc>(context).add(QuizSubmit(context: context, name: ctrl.text));
                       },
                     ),
                   )

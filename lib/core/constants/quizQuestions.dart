@@ -81,11 +81,11 @@ List<Map> firstQuestion = [
       },
       {
         'question':'Who is this?',
-        'a':'ELVIS PRESLEY',
-        'b':'MICHAEL JACKSON',
-        'c':'JOHN LENNON',
-        'd':'FREDDIE MERCURY',
-        'answer': 'MICHAEL JACKSON',
+        'a':'E PRESLEY',
+        'b':'M JACKSON',
+        'c':'J LENNON',
+        'd':'F MERCURY',
+        'answer': 'M JACKSON',
         'url': 'https://live.staticflickr.com/65535/52689712967_d4c6b6f0e2_m.jpg'
       },
       {
@@ -103,7 +103,7 @@ List<Map> firstQuestion = [
         'b':'LINCOLN',
         'c':'CHEVROLET',
         'd':'LEXUS',
-        'answer': 'ASSASSINS CREED',
+        'answer': 'CHEVROLET',
         'url': 'https://live.staticflickr.com/65535/52690237976_f53caec248_m.jpg'
       },
     ];

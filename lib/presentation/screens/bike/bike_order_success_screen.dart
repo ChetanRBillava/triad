@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:assignment/core/constants/images.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lottie/lottie.dart';
@@ -48,7 +49,7 @@ class _BikeOrderSuccessScreenState extends State<BikeOrderSuccessScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Image.asset('assets/bike.gif', width: 100.w, fit: BoxFit.fitWidth,),
+                    Image.asset(AppImages.bike, width: 100.w, fit: BoxFit.fitWidth,),
                   ],
                 ),
                 SizedBox(height: 3.h),

@@ -23,6 +23,17 @@ Here we write the updates of future releases.
 ### Security
 
 
+## [1.1.0] - 17-02-2023
+
+### Added
+- Shared preference plugin to store data locally
+- Quiz bloc sets
+
+### Changed
+- Min sdk version to 21 in "android/app/build.gradle" file
+- Setup the logic for quiz module
+
+
 ## [1.0.6] - 17-02-2023
 
 ### Added
