@@ -49,9 +49,10 @@ class CustomButton extends StatefulWidget {
 class _CustomButtonState extends State<CustomButton> {
   @override
   Widget build(BuildContext context) {
-    return InkWell(
+    return GestureDetector(
       onTap: widget.onTapEvent,
-      child: Ink(
+      child: Container(
+        width: widget.buttonSize,
         decoration: BoxDecoration(
             color: widget.buttonColor,
             border: Border.all(color: widget.borderColor??widget.buttonColor),
@@ -66,23 +67,20 @@ class _CustomButtonState extends State<CustomButton> {
                 Radius.circular(widget.borderRadius??0.w)
             )
         ),
-        child: Container(
-          width: widget.buttonSize,
-          child: Padding(
-            padding: EdgeInsets.all(1.h),
-            child: widget.iconData!=null?
-                Icon(
-                  widget.iconData,
-                  size: widget.iconSize,
-                  color: widget.iconColor,
-                ) :
-            CustomText(
-              textString: widget.buttonText as String,
-              textFontSize: widget.buttonTextSize??12.sp,
-              fontWeight: widget.fontWeight??FontWeight.normal,
-              textColor: widget.buttonTextColor,
-              textAlign: widget.textAlign??TextAlign.center,
-            ),
+        child: Padding(
+          padding: EdgeInsets.all(1.h),
+          child: widget.iconData!=null?
+              Icon(
+                widget.iconData,
+                size: widget.iconSize,
+                color: widget.iconColor,
+              ) :
+          CustomText(
+            textString: widget.buttonText as String,
+            textFontSize: widget.buttonTextSize??12.sp,
+            fontWeight: widget.fontWeight??FontWeight.normal,
+            textColor: widget.buttonTextColor,
+            textAlign: widget.textAlign??TextAlign.center,
           ),
         ),
       ),
