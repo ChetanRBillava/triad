@@ -1,3 +1,4 @@
+import 'package:assignment/logic/bloc/food_bloc.dart';
 import 'package:assignment/logic/cubit/app_theme_cubit.dart';
 import 'package:assignment/presentation/router/app_router.dart';
 import 'package:assignment/presentation/utils/custom_button.dart';
@@ -6,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sizer/sizer.dart';
 
+import '../../../logic/bloc/bike_bloc.dart';
 import '../../utils/custom_text.dart';
 
 class FoodLoginScreen extends StatefulWidget {
@@ -75,7 +77,7 @@ class _FoodLoginScreenState extends State<FoodLoginScreen> {
                               Padding(
                                 padding: EdgeInsets.all(2.w),
                                 child: CustomTextField(
-                                  controller: emailController,
+                                  controller: passwordController,
                                   labelText: 'Password',
                                   hintText: 'Type here...',
                                   fillColor: themeState.themeClass.formFieldBackgroundColor,
@@ -92,7 +94,10 @@ class _FoodLoginScreenState extends State<FoodLoginScreen> {
                                   fontWeight: FontWeight.bold,
                                   borderRadius: 10,
                                   onTapEvent: (){
-                                    Navigator.of(context).pushNamed(AppRouter.foodHome);
+                                    BlocProvider.of<FoodBloc>(context).add(FoodUserLogin(
+                                        context: context,
+                                        email: emailController.text, password: passwordController.text
+                                    ));
                                   },
                                 ),
                               ),

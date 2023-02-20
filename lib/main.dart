@@ -1,4 +1,5 @@
 import 'package:assignment/logic/bloc/bike_bloc.dart';
+import 'package:assignment/logic/bloc/food_bloc.dart';
 import 'package:assignment/logic/bloc/quiz_bloc.dart';
 import 'package:assignment/logic/cubit/app_theme_cubit.dart';
 import 'package:assignment/logic/cubit/home_cubit.dart';
@@ -32,6 +33,9 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => BikeBloc(),
+        ),
+        BlocProvider(
+          create: (context) => FoodBloc(),
         ),
       ],
       child: Sizer(builder: (context, constraints, orientation) {

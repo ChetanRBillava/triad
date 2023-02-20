@@ -68,7 +68,7 @@ class BikeBloc extends Bloc<BikeEvent, BikeState> {
 
               ScaffoldMessenger.of(event.context).showSnackBar(
                   SnackBar(
-                    duration: const Duration(seconds: 3),
+                    duration: const Duration(seconds: 2),
                     content: Text('Welcome $name'),
                   )
               );
@@ -77,7 +77,7 @@ class BikeBloc extends Bloc<BikeEvent, BikeState> {
             else{
               ScaffoldMessenger.of(event.context).showSnackBar(
                   const SnackBar(
-                    duration: Duration(seconds: 3),
+                    duration: Duration(seconds: 2),
                     content: Text('User not found!'),
                   )
               );

@@ -23,6 +23,18 @@ Here we write the updates of future releases.
 ### Security
 
 
+## [1.1.2] - 20-02-2023
+
+### Added
+- Food images in "https://www.flickr.com/"
+- File to populate food data in "lib/core/constants/food_list.dart"
+- Food bloc set
+
+### Changed
+- Image references in "lib/core/constants/images.dart" file
+- Replaced static data references with bloc state managed values
+
+
 ## [1.1.1] - 19-02-2023
 
 ### Added
