@@ -10,6 +10,7 @@ class CustomText extends StatefulWidget {
     Key? key,
     required this.textString,
     this.fontFamily,
+    this.maxLines,
     this.textFontSize,
     this.textColor,
     this.textAlign,
@@ -19,6 +20,7 @@ class CustomText extends StatefulWidget {
 
 
   final String textString;
+  final int? maxLines;
   final String? fontFamily;
   final double? textFontSize;
   final Color? textColor;
@@ -37,6 +39,7 @@ class _CustomTextState extends State<CustomText> {
       builder: (context, themeState) {
         return Text(
           widget.textString,
+          maxLines: widget.maxLines??9999999,
           textAlign: widget.textAlign ?? TextAlign.start,
           overflow: widget.overflow??TextOverflow.visible,
           style: widget.fontFamily=='faster one'?GoogleFonts.fasterOne(

@@ -19,6 +19,9 @@ class _FoodOrderSuccessScreenState extends State<FoodOrderSuccessScreen> {
   @override
   void initState() {
     Timer(const Duration(seconds: 4), (){
+      Navigator.pop(context);
+      Navigator.pop(context);
+      Navigator.pop(context);
       Navigator.of(context).pushNamed(AppRouter.foodOrderDetails);
     });
     super.initState();

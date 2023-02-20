@@ -4,21 +4,30 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sizer/sizer.dart';
 
+import '../../core/constants/bike_list.dart';
 import '../../core/constants/images.dart';
+import '../../logic/bloc/bike_bloc.dart';
 import '../utils/custom_text.dart';
 
-class BikeTile extends StatelessWidget {
-  const BikeTile({
+class BikeTile extends StatefulWidget {
+  int index;
+  BikeTile({
     super.key,
+    required this.index
   });
 
+  @override
+  State<BikeTile> createState() => _BikeTileState();
+}
+
+class _BikeTileState extends State<BikeTile> {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<AppThemeCubit, AppThemeState>(
       builder: (context, themeState) {
         return GestureDetector(
           onTap: (){
-            Navigator.of(context).pushNamed(AppRouter.bikeDetails);
+            BlocProvider.of<BikeBloc>(context).add(BikeSelected(index: widget.index, context: context));
           },
           child: SizedBox(
             child: Stack(
@@ -39,7 +48,7 @@ class BikeTile extends StatelessWidget {
                               Padding(
                                 padding: EdgeInsets.only(left: 3.w, bottom: 2.h, top: 7.h),
                                 child: CustomText(
-                                  textString: 'RE Classic 350',
+                                  textString: bikes[widget.index]['Name'],
                                   fontFamily: 'faster one',
                                   textFontSize: 20.sp,
                                 ),
@@ -55,7 +64,7 @@ class BikeTile extends StatelessWidget {
                                   children: [
                                     Icon(Icons.local_gas_station, size: 20.sp,),
                                     CustomText(
-                                      textString: '40 KM/L',
+                                      textString: bikes[widget.index]['Mileage'],
                                       textFontSize: 16.sp,
                                     ),
                                   ],
@@ -65,7 +74,7 @@ class BikeTile extends StatelessWidget {
                                   children: [
                                     Icon(Icons.account_balance_wallet, size: 20.sp,),
                                     CustomText(
-                                      textString: '₹1399/D',
+                                      textString: '₹${bikes[widget.index]['Amount']}/D',
                                       textFontSize: 16.sp,
                                     ),
                                   ],
@@ -75,7 +84,7 @@ class BikeTile extends StatelessWidget {
                                   children: [
                                     Icon(Icons.stars, size: 20.sp,),
                                     CustomText(
-                                      textString: '4.5',
+                                      textString: bikes[widget.index]['Rating'],
                                       textFontSize: 16.sp,
                                     ),
                                   ],
@@ -91,7 +100,7 @@ class BikeTile extends StatelessWidget {
                 Align(
                   alignment: Alignment.topCenter,
                   child: Image.asset(
-                    AppImages.re,
+                    bikes[widget.index]['URL'],
                     height: 20.h,
                   ),
                 ),

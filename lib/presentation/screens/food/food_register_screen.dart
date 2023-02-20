@@ -1,3 +1,4 @@
+import 'package:assignment/logic/bloc/food_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sizer/sizer.dart';
@@ -92,7 +93,7 @@ class _FoodRegisterScreenState extends State<FoodRegisterScreen> {
                               Padding(
                                 padding: EdgeInsets.all(2.w),
                                 child: CustomTextField(
-                                  controller: emailController,
+                                  controller: passwordController,
                                   labelText: 'Password',
                                   hintText: 'Type here...',
                                   fillColor: themeState.themeClass.formFieldBackgroundColor,
@@ -127,7 +128,10 @@ class _FoodRegisterScreenState extends State<FoodRegisterScreen> {
                                   fontWeight: FontWeight.bold,
                                   borderRadius: 10,
                                   onTapEvent: (){
-                                    Navigator.of(context).pushNamed(AppRouter.foodHome);
+                                    BlocProvider.of<FoodBloc>(context).add(FoodUserRegister(
+                                        context: context, name: nameController.text, email: emailController.text,
+                                        password: passwordController.text
+                                    ));
                                   },
                                 ),
                               ),

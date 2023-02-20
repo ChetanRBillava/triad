@@ -51,6 +51,8 @@ class AppTheme {
   late Color bikeBackgroundColor;
   late Color bikeLoginBackgroundColor;
   late Color bikeButtonBackgroundColor;
+  late Color bikeButtonBackgroundColor2;
+  late Color bikeButtonBackgroundColorDisabled;
   late Color bikeAppBarColor;
   late Color bikeBorderColor;
 
@@ -175,6 +177,12 @@ class LightTheme extends AppTheme{
   @override
   // TODO: implement primary
   Color get bikeButtonBackgroundColor => const Color(0xffffffff);
+  @override
+  // TODO: implement primary
+  Color get bikeButtonBackgroundColor2 => const Color(0xff00AD11);
+  @override
+  // TODO: implement primary
+  Color get bikeButtonBackgroundColorDisabled => const Color(0xffacffb4);
   @override
   // TODO: implement primary
   Color get bikeAppBarColor => const Color(0xff00AD11);

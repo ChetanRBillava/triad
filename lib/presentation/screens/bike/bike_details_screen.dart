@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../../core/constants/images.dart';
+import '../../../logic/bloc/bike_bloc.dart';
 import '../../../logic/cubit/app_theme_cubit.dart';
 import '../../utils/custom_text.dart';
 
@@ -18,6 +19,8 @@ class BikeDetailsScreen extends StatefulWidget {
 class _BikeDetailsScreenState extends State<BikeDetailsScreen> {
   @override
   Widget build(BuildContext context) {
+    return BlocBuilder<BikeBloc, BikeState>(
+  builder: (context, bikeState) {
     return BlocBuilder<AppThemeCubit, AppThemeState>(
       builder: (context, themeState) {
         return SafeArea(
@@ -44,7 +47,7 @@ class _BikeDetailsScreenState extends State<BikeDetailsScreen> {
                         Padding(
                           padding: EdgeInsets.only(left: 3.w, top: 2.h),
                           child: CustomText(
-                            textString: 'RE Classic 350',
+                            textString: (bikeState as BikeDetails).bikeDetails['Name'],
                             fontFamily: 'faster one',
                             textFontSize: 24.sp,
                           ),
@@ -56,7 +59,7 @@ class _BikeDetailsScreenState extends State<BikeDetailsScreen> {
                         Padding(
                           padding: EdgeInsets.only(left: 3.w, top: 1.h),
                           child: CustomText(
-                            textString: 'Royal Enfield',
+                            textString: bikeState.bikeDetails['Brand'],
                             textFontSize: 16.sp,
                             fontWeight: FontWeight.bold,
                           ),
@@ -121,7 +124,7 @@ class _BikeDetailsScreenState extends State<BikeDetailsScreen> {
                           ),
                         ),
                         Image.asset(
-                          AppImages.re,
+                          bikeState.mainIMG,
                           width: 70.w,
                         ),
                       ],
@@ -129,22 +132,27 @@ class _BikeDetailsScreenState extends State<BikeDetailsScreen> {
                     SizedBox(
                       height: 15.w,
                       child: ListView.builder(
-                        itemCount: 8,
+                        itemCount: bikeState.bikeDetails['images'].length,
                         shrinkWrap: true,
                         scrollDirection: Axis.horizontal,
                         itemBuilder: (context, i) {
-                          return Padding(
-                            padding: EdgeInsets.only(left: 4.w),
-                            child: Container(
-                              decoration: BoxDecoration(
-                                  border: Border.all(color: themeState.themeClass.bikeBorderColor),
-                                  borderRadius: BorderRadius.all(Radius.circular(3.w))
-                              ),
-                              child: Padding(
-                                padding: EdgeInsets.all(2.w),
-                                child: Image.asset(
-                                  AppImages.re,
-                                  width: 15.w,
+                          return GestureDetector(
+                            onTap: (){
+                              BlocProvider.of<BikeBloc>(context).add(BikeToggleMainURL(newMainURL: bikeState.bikeDetails['images'][i]));
+                            },
+                            child: Padding(
+                              padding: EdgeInsets.only(left: 4.w),
+                              child: Container(
+                                decoration: BoxDecoration(
+                                    border: Border.all(color: themeState.themeClass.bikeBorderColor),
+                                    borderRadius: BorderRadius.all(Radius.circular(3.w))
+                                ),
+                                child: Padding(
+                                  padding: EdgeInsets.all(2.w),
+                                  child: Image.asset(
+                                    bikeState.bikeDetails['images'][i],
+                                    width: 15.w,
+                                  ),
                                 ),
                               ),
                             ),
@@ -175,7 +183,7 @@ class _BikeDetailsScreenState extends State<BikeDetailsScreen> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             CustomText(
-                              textString: 'Mileage: 40 KM/L',
+                              textString: 'Mileage: ${bikeState.bikeDetails['Mileage']}',
                               textColor: themeState.themeClass.textColor_2,
                               fontWeight: FontWeight.bold,
                               textFontSize: 14.sp,
@@ -210,7 +218,7 @@ class _BikeDetailsScreenState extends State<BikeDetailsScreen> {
                       Padding(
                         padding: EdgeInsets.all(2.w),
                         child: CustomText(
-                          textString: 'Royal Enfield Classic 350 and Classic 500 are models of Royal Enfield motorcycles which have been in production since 2009. The Classic series of Royal Enfield motorcycles are inspired by the Royal Enfield G2 350cc Bullet motorcycle, first produced in 1948.',
+                          textString: bikeState.bikeDetails['Description'],
                           textColor: themeState.themeClass.textColor_2,
                           textFontSize: 10.sp,
                           textAlign: TextAlign.justify,
@@ -222,7 +230,7 @@ class _BikeDetailsScreenState extends State<BikeDetailsScreen> {
                           Padding(
                             padding: EdgeInsets.all(5.w),
                             child: CustomText(
-                              textString: '₹1399/D',
+                              textString: '₹${bikeState.bikeDetails['Amount']}/D',
                               textColor: themeState.themeClass.textColor_2,
                               fontWeight: FontWeight.bold,
                               textFontSize: 18.sp,
@@ -252,5 +260,7 @@ class _BikeDetailsScreenState extends State<BikeDetailsScreen> {
         );
       },
     );
+  },
+);
   }
 }

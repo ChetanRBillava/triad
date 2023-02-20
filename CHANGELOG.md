@@ -7,10 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased] - dd-mm-yyyy
 Here we write the updates of future releases.
 
-1.0.xx belongs to basic utilities and UI/UX setup
+1.1.xx belongs to logic integration of all the modules
 
 ### Added
-- Designs from figma and setup the basic folder hierarchy
+- Logics for all modules
 
 ### Changed
 
@@ -21,6 +21,41 @@ Here we write the updates of future releases.
 ### Fixed
 
 ### Security
+
+
+## [1.1.2] - 20-02-2023
+
+### Added
+- Food images in "https://www.flickr.com/"
+- File to populate food data in "lib/core/constants/food_list.dart"
+- Food bloc set
+
+### Changed
+- Image references in "lib/core/constants/images.dart" file
+- Replaced static data references with bloc state managed values
+
+
+## [1.1.1] - 19-02-2023
+
+### Added
+- Bike images
+- File to populate bike data in "lib/core/constants/bike_list.dart"
+- Bike bloc set
+
+### Changed
+- Image references in "lib/core/constants/images.dart" file
+- Replaced static data references with bloc state managed values
+
+
+## [1.1.0] - 17-02-2023
+
+### Added
+- Shared preference plugin to store data locally
+- Quiz bloc sets
+
+### Changed
+- Min sdk version to 21 in "android/app/build.gradle" file
+- Setup the logic for quiz module
 
 
 ## [1.0.6] - 17-02-2023

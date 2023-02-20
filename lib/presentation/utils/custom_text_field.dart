@@ -11,7 +11,8 @@ import 'custom_text.dart';
 class CustomTextField extends StatefulWidget {
   const CustomTextField({
     Key? key,
-    required this.controller,
+    this.controller,
+    this.enabled,
     this.obscureText,
     this.labelText,
     this.labelTextFontSize,
@@ -32,10 +33,11 @@ class CustomTextField extends StatefulWidget {
     this.enabledBorderWidth,
     this.enabledBorderColor,
     this.validator,
+    this.onChanged,
   }) : super(key: key);
 
   final TextEditingController? controller;
-  final bool? obscureText;
+  final bool? obscureText, enabled;
   final String? labelText, hintText;
   final double? labelTextFontSize, hintTextFontSize;
   final TextCapitalization? textCapitalization;
@@ -45,7 +47,7 @@ class CustomTextField extends StatefulWidget {
   final Color? focusedBorderColor, enabledBorderColor, fillColor, labelTextColor;
   final IconData? prefixIcon;
   final Widget? suffixIcon;
-  final String? Function(String?)? validator;
+  final String? Function(String?)? validator, onChanged;
   final FontWeight? labelFontWeight;
 
   @override
@@ -71,9 +73,10 @@ class _CustomTextFieldState extends State<CustomTextField> {
               ),
             ):const SizedBox.shrink(),
             TextFormField(
-
+              enabled: widget.enabled??true,
               controller: widget.controller,
               validator: widget.validator,
+              onChanged: widget.onChanged,
               maxLength: widget.maxLength,
               minLines: widget.minLines,
               maxLines: widget.maxLines??1,

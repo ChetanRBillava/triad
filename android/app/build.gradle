@@ -47,7 +47,7 @@ android {
         applicationId "niveus.crb.assignment"
         // You can update the following values to match your application needs.
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
-        minSdkVersion flutter.minSdkVersion
+        minSdkVersion 21
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
@@ -60,7 +60,7 @@ android {
             signingConfig signingConfigs.debug
             applicationVariants.all { variant ->
                 variant.outputs.each { output ->
-                    def name = "Flutter assignment V1.0.6.apk"
+                    def name = "Flutter assignment V1.1.2.apk"
                     output.outputFileName = name
                 }
             }
