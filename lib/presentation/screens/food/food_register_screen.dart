@@ -128,10 +128,20 @@ class _FoodRegisterScreenState extends State<FoodRegisterScreen> {
                                   fontWeight: FontWeight.bold,
                                   borderRadius: 10,
                                   onTapEvent: (){
-                                    BlocProvider.of<FoodBloc>(context).add(FoodUserRegister(
-                                        context: context, name: nameController.text, email: emailController.text,
-                                        password: passwordController.text
-                                    ));
+                                    if(!isChecked){
+                                      ScaffoldMessenger.of(context).showSnackBar(
+                                          const SnackBar(
+                                            duration: Duration(seconds: 3),
+                                            content: Text('Please click on the checkbox'),
+                                          )
+                                      );
+                                    }
+                                    else{
+                                      BlocProvider.of<FoodBloc>(context).add(FoodUserRegister(
+                                          context: context, name: nameController.text, email: emailController.text,
+                                          password: passwordController.text
+                                      ));
+                                    }
                                   },
                                 ),
                               ),

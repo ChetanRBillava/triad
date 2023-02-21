@@ -108,6 +108,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin{
                                         builder: (BuildContext context, double value, Widget? child) {
                                           return GestureDetector(
                                             onTap: (){
+                                              BlocProvider.of<HomeCubit>(context).resetState();
                                               Navigator.of(context).pushNamed(AppRouter.bikeLogin);
                                             },
                                             child: AnimatedContainer(
@@ -161,6 +162,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin{
                                         builder: (BuildContext context, double value, Widget? child) {
                                           return GestureDetector(
                                             onTap: (){
+                                              BlocProvider.of<HomeCubit>(context).resetState();
                                               Navigator.of(context).pushNamed(AppRouter.quizHome);
                                             },
                                             child: AnimatedContainer(
@@ -214,6 +216,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin{
                                         builder: (BuildContext context, double value, Widget? child) {
                                           return GestureDetector(
                                             onTap: (){
+                                              BlocProvider.of<HomeCubit>(context).resetState();
                                               Navigator.of(context).pushNamed(AppRouter.foodLogin);
                                             },
                                             child: AnimatedContainer(

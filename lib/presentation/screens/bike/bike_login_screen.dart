@@ -227,8 +227,8 @@ class _BikeLoginScreenState extends State<BikeLoginScreen> {
 
                                                 if(!isChecked){
                                                   ScaffoldMessenger.of(context).showSnackBar(
-                                                      SnackBar(
-                                                        duration: const Duration(seconds: 3),
+                                                      const SnackBar(
+                                                        duration: Duration(seconds: 3),
                                                         content: Text('Please click on the checkbox'),
                                                       )
                                                   );

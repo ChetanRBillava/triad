@@ -23,6 +23,15 @@ Here we write the updates of future releases.
 ### Security
 
 
+## [1.2.2] - 21-02-2023
+
+### Added
+- State reset function call for home cubit
+
+### Changed
+- Registration logics by restricting duplicate registrations
+
+
 ## [1.2.1] - 21-02-2023
 
 ### Added

@@ -103,26 +103,67 @@ class FoodBloc extends Bloc<FoodEvent, FoodState> {
         else{
           SharedPreferences prefs = await SharedPreferences.getInstance();
           String encodedMap = prefs.getString('foodUserRegister') ?? '';
+          if(encodedMap == ''){
+            Map userDetails = {
+              'name': event.name,
+              'email': event.email,
+              'password': event.password
+            };
 
-          Map userDetails = {
-            'name': event.name,
-            'email': event.email,
-            'password': event.password
-          };
+            encodedMap = json.encode([userDetails]);
+            customPrint.myCustomPrint(encodedMap);
 
-          encodedMap = json.encode([userDetails]);
-          customPrint.myCustomPrint(encodedMap);
+            prefs.setString('foodUserRegister', encodedMap);
+            emit(FoodUserDetails(name: event.name, email: event.email, password: event.password, cartCount: 0, cart: const [],
+                phone: '', address: '', pincode: '', orderDetails: const {}));
+            ScaffoldMessenger.of(event.context).showSnackBar(
+                SnackBar(
+                  duration: const Duration(seconds: 2),
+                  content: Text('Welcome ${event.name}'),
+                )
+            );
+            Navigator.of(event.context).pushNamed(AppRouter.foodHome);
+          }
+          else{
+            customPrint.myCustomPrint('Users found');
+            List users = json.decode(encodedMap);
+            customPrint.myCustomPrint(users);
+            bool exists = false;
+            String name = '';
+            for (var element in users) {
+              customPrint.myCustomPrint(element);
+              if(element['email'] == event.email){
+                exists = true;
+                break;
+              }
+              else{
+                continue;
+              }
+            }
 
-          prefs.setString('foodUserRegister', encodedMap);
-          emit(FoodUserDetails(name: event.name, email: event.email, password: event.password, cartCount: 0, cart: const [],
-              phone: '', address: '', pincode: '', orderDetails: {}));
-          ScaffoldMessenger.of(event.context).showSnackBar(
-              SnackBar(
-                duration: const Duration(seconds: 2),
-                content: Text('Welcome ${event.name}'),
-              )
-          );
-          Navigator.of(event.context).pushNamed(AppRouter.foodHome);
+            if(!exists){
+              emit(FoodUserDetails(name: event.name, email: event.email, password: event.password, cartCount: 0, cart: const [], orderDetails: {},
+                  phone: '', address: '', pincode: ''));
+
+              ScaffoldMessenger.of(event.context).showSnackBar(
+                  SnackBar(
+                    duration: const Duration(seconds: 2),
+                    content: Text('Welcome $name'),
+                  )
+              );
+              Navigator.of(event.context).pushNamed(AppRouter.foodHome);
+            }
+            else{
+              ScaffoldMessenger.of(event.context).showSnackBar(
+                  const SnackBar(
+                    duration: Duration(seconds: 2),
+                    content: Text('User already registered'),
+                  )
+              );
+
+            }
+          }
+
         }
       }
       else if(event is FoodSelected){

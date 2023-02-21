@@ -32,7 +32,12 @@ class BikeBloc extends Bloc<BikeEvent, BikeState> {
           SharedPreferences prefs = await SharedPreferences.getInstance();
           String encodedMap = prefs.getString('bikeUserRegister') ?? '';
           if(encodedMap == ''){
-            customPrint.myCustomPrint('No users found');
+            ScaffoldMessenger.of(event.context).showSnackBar(
+                const SnackBar(
+                  duration: Duration(seconds: 2),
+                  content: Text('User not found!'),
+                )
+            );
           }
           else{
             customPrint.myCustomPrint('Users found');
@@ -90,7 +95,7 @@ class BikeBloc extends Bloc<BikeEvent, BikeState> {
         if(event.name == '' || event.phone == '' || event.email == '' || event.password == ''){
           ScaffoldMessenger.of(event.context).showSnackBar(
               const SnackBar(
-                duration: Duration(seconds: 3),
+                duration: Duration(seconds: 2),
                 content: Text('Please enter all the details'),
               )
           );
@@ -98,26 +103,65 @@ class BikeBloc extends Bloc<BikeEvent, BikeState> {
         else{
           SharedPreferences prefs = await SharedPreferences.getInstance();
           String encodedMap = prefs.getString('bikeUserRegister') ?? '';
+          if(encodedMap == ''){
+            Map userDetails = {
+              'name': event.name,
+              'phone': event.phone,
+              'email': event.email,
+              'password': event.password
+            };
 
-          Map userDetails = {
-            'name': event.name,
-            'phone': event.phone,
-            'email': event.email,
-            'password': event.password
-          };
+            encodedMap = json.encode([userDetails]);
+            customPrint.myCustomPrint(encodedMap);
 
-          encodedMap = json.encode([userDetails]);
-          customPrint.myCustomPrint(encodedMap);
+            prefs.setString('bikeUserRegister', encodedMap);
+            emit(BikeUserDetails(name: event.name, phone: event.phone, email: event.email, password: event.password));
+            ScaffoldMessenger.of(event.context).showSnackBar(
+                SnackBar(
+                  duration: const Duration(seconds: 3),
+                  content: Text('Welcome ${event.name}'),
+                )
+            );
+            Navigator.of(event.context).pushNamed(AppRouter.bikeHome);
+          }
+          else{
+            customPrint.myCustomPrint('Users found');
+            List users = json.decode(encodedMap);
+            customPrint.myCustomPrint(users);
+            bool exists = false;
+            for (var element in users) {
+              customPrint.myCustomPrint(element);
+              if(element['email'] == event.email){
+                exists = true;
+                break;
+              }
+              else{
+                continue;
+              }
+            }
 
-          prefs.setString('bikeUserRegister', encodedMap);
-          emit(BikeUserDetails(name: event.name, phone: event.phone, email: event.email, password: event.password));
-          ScaffoldMessenger.of(event.context).showSnackBar(
-              SnackBar(
-                duration: const Duration(seconds: 3),
-                content: Text('Welcome ${event.name}'),
-              )
-          );
-          Navigator.of(event.context).pushNamed(AppRouter.bikeHome);
+            if(!exists){
+              emit(BikeUserDetails(name: event.name, phone: event.phone, email: event.email, password: event.password));
+
+              ScaffoldMessenger.of(event.context).showSnackBar(
+                  SnackBar(
+                    duration: const Duration(seconds: 2),
+                    content: Text('Welcome ${event.name}'),
+                  )
+              );
+              Navigator.of(event.context).pushNamed(AppRouter.bikeHome);
+            }
+            else{
+              ScaffoldMessenger.of(event.context).showSnackBar(
+                  const SnackBar(
+                    duration: Duration(seconds: 2),
+                    content: Text('User already registered'),
+                  )
+              );
+
+            }
+          }
+
         }
       }
       else if(event is BikeSelected){
