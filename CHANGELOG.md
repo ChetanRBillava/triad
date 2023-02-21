@@ -23,6 +23,12 @@ Here we write the updates of future releases.
 ### Security
 
 
+## [1.2.1] - 21-02-2023
+
+### Added
+- App logo files in both android and ios folders
+
+
 ## [1.2.0] - 21-02-2023
 
 ### Added
