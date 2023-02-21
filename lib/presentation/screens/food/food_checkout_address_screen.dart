@@ -37,7 +37,7 @@ class _FoodCheckoutAddressScreenState extends State<FoodCheckoutAddressScreen> {
                   automaticallyImplyLeading: true,
                   title: CustomText(
                     textString: 'DELIVERY ADDRESS',
-                    textColor: themeState.themeClass.textColor_2,
+                    textColor: themeState.themeClass.white,
                     fontWeight: FontWeight.bold,
                   ),
                   centerTitle: true,
@@ -54,7 +54,7 @@ class _FoodCheckoutAddressScreenState extends State<FoodCheckoutAddressScreen> {
                               controller: nameController,
                               labelText: 'Name',
                               hintText: 'Type here...',
-                              fillColor: themeState.themeClass.formFieldBackgroundColor,
+                              fillColor: themeState.themeClass.foodFormBackgroundColor,
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
                                   return 'This value cannot be empty';
@@ -71,7 +71,7 @@ class _FoodCheckoutAddressScreenState extends State<FoodCheckoutAddressScreen> {
                               controller: emailController,
                               labelText: 'E-mail',
                               hintText: 'Type here...',
-                              fillColor: themeState.themeClass.formFieldBackgroundColor,
+                              fillColor: themeState.themeClass.foodFormBackgroundColor,
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
                                   return 'This value cannot be empty';
@@ -88,7 +88,7 @@ class _FoodCheckoutAddressScreenState extends State<FoodCheckoutAddressScreen> {
                               controller: phoneController,
                               labelText: 'Phone',
                               hintText: 'Type here...',
-                              fillColor: themeState.themeClass.formFieldBackgroundColor,
+                              fillColor: themeState.themeClass.foodFormBackgroundColor,
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
                                   return 'This value cannot be empty';
@@ -105,7 +105,7 @@ class _FoodCheckoutAddressScreenState extends State<FoodCheckoutAddressScreen> {
                               controller: addressController,
                               labelText: 'Address',
                               hintText: 'Type here...',
-                              fillColor: themeState.themeClass.formFieldBackgroundColor,
+                              fillColor: themeState.themeClass.foodFormBackgroundColor,
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
                                   return 'This value cannot be empty';
@@ -122,7 +122,7 @@ class _FoodCheckoutAddressScreenState extends State<FoodCheckoutAddressScreen> {
                               controller: pincodeController,
                               labelText: 'Pincode',
                               hintText: 'Type here...',
-                              fillColor: themeState.themeClass.formFieldBackgroundColor,
+                              fillColor: themeState.themeClass.foodFormBackgroundColor,
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
                                   return 'This value cannot be empty';
@@ -145,7 +145,7 @@ class _FoodCheckoutAddressScreenState extends State<FoodCheckoutAddressScreen> {
                             buttonColor: themeState.themeClass.foodButtonColor,
                             buttonSize: 85.w,
                             buttonText: 'Proceed to pay ₹${(foodState).grandTotal.toStringAsFixed(2)}'.toUpperCase(),
-                            buttonTextColor: themeState.themeClass.textColor_2,
+                            buttonTextColor: themeState.themeClass.white,
                             fontWeight: FontWeight.bold,
                             borderRadius: 5.w,
                             onTapEvent: (){

@@ -26,7 +26,7 @@ class _QuizResultsScreenState extends State<QuizResultsScreen> {
                   backgroundColor: (themeState as AppThemeSet).themeClass.quizBackgroundColor,
                   appBar: AppBar(
                     elevation: 0,
-                    backgroundColor: (themeState as AppThemeSet).themeClass.quizBackgroundColor,
+                    backgroundColor: (themeState).themeClass.quizBackgroundColor,
                     leading: GestureDetector(
                       onTap: (){
                         Navigator.of(context).pushNamed(AppRouter.home);
@@ -34,7 +34,7 @@ class _QuizResultsScreenState extends State<QuizResultsScreen> {
                       child: Icon(
                         Icons.home,
                         size: 30.sp,
-                        color: themeState.themeClass.textColor_2,
+                        color: themeState.themeClass.white,
                       ),
                     ),
                   ),
@@ -49,7 +49,7 @@ class _QuizResultsScreenState extends State<QuizResultsScreen> {
                               textString: 'Result'.toUpperCase(),
                               textFontSize: 24.sp,
                               fontWeight: FontWeight.bold,
-                              textColor: (themeState).themeClass.textColor_2,
+                              textColor: (themeState).themeClass.white,
                             ),
                           ),
                         ],
@@ -63,7 +63,7 @@ class _QuizResultsScreenState extends State<QuizResultsScreen> {
                               textString: 'Your score is ${(quizState as QuizResult).score}/3',
                               textFontSize: 24.sp,
                               fontWeight: FontWeight.bold,
-                              textColor: (themeState).themeClass.textColor_2,
+                              textColor: (themeState).themeClass.white,
                             ),
                           ),
                         ],
@@ -80,7 +80,7 @@ class _QuizResultsScreenState extends State<QuizResultsScreen> {
                                 quizState.score==1?'OOPS ${quizState.name}!!!\nBetter luck next time!!!':
                                 'Oh no!!! Don\'t worry ${quizState.name}\nyou can always try again!!!',
                                 fontWeight: FontWeight.bold,
-                                textColor: (themeState).themeClass.textColor_2,
+                                textColor: (themeState).themeClass.white,
                                 textAlign: TextAlign.center,
                               ),
                             ),
@@ -95,7 +95,7 @@ class _QuizResultsScreenState extends State<QuizResultsScreen> {
                               textString: 'Leaderboard',
                               textFontSize: 24.sp,
                               fontWeight: FontWeight.bold,
-                              textColor: (themeState).themeClass.textColor_2,
+                              textColor: (themeState).themeClass.white,
                             ),
                           ),
                         ],
@@ -117,7 +117,7 @@ class _QuizResultsScreenState extends State<QuizResultsScreen> {
                                         textString: (i+1).toString(),
                                         textFontSize: 20.sp,
                                         fontWeight: FontWeight.bold,
-                                        textColor: (themeState).themeClass.textColor_2,
+                                        textColor: (themeState).themeClass.white,
                                       ),
                                     ),
                                     Padding(
@@ -126,7 +126,7 @@ class _QuizResultsScreenState extends State<QuizResultsScreen> {
                                         textString: quizState.leaderboard[i]['name'],
                                         textFontSize: 20.sp,
                                         fontWeight: FontWeight.bold,
-                                        textColor: (themeState).themeClass.textColor_2,
+                                        textColor: (themeState).themeClass.white,
                                       ),
                                     ),
                                   ],
@@ -137,7 +137,7 @@ class _QuizResultsScreenState extends State<QuizResultsScreen> {
                                     textString: '${quizState.leaderboard[i]['score']}/3',
                                     textFontSize: 20.sp,
                                     fontWeight: FontWeight.bold,
-                                    textColor: (themeState).themeClass.textColor_2,
+                                    textColor: (themeState).themeClass.white,
                                   ),
                                 ),
                               ],

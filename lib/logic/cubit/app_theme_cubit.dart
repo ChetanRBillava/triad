@@ -21,4 +21,12 @@ class AppThemeCubit extends Cubit<AppThemeState> {
     emit(AppThemeSet(brightness: Brightness.light,
         themeClass: lightTheme));
   }
+
+  void setDarkTheme() {
+    DarkTheme darkTheme = DarkTheme();
+    customPrint.myCustomPrint('Dark mode');
+
+    emit(AppThemeSet(brightness: Brightness.dark,
+        themeClass: darkTheme));
+  }
 }

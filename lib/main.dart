@@ -5,6 +5,7 @@ import 'package:assignment/logic/cubit/app_theme_cubit.dart';
 import 'package:assignment/logic/cubit/home_cubit.dart';
 import 'package:assignment/presentation/router/app_router.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sizer/sizer.dart';
 
@@ -40,7 +41,13 @@ class MyApp extends StatelessWidget {
       ],
       child: Sizer(builder: (context, constraints, orientation) {
         if(!setColor){
-          BlocProvider.of<AppThemeCubit>(context).setLightTheme();
+          final Brightness currentBrightness = SchedulerBinding.instance.window.platformBrightness;
+          if (currentBrightness == Brightness.light) {
+            BlocProvider.of<AppThemeCubit>(context).setLightTheme();
+          }
+          else {
+            BlocProvider.of<AppThemeCubit>(context).setDarkTheme();
+          }
           setColor = true;
         }
         return const MaterialApp(

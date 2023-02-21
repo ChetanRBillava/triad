@@ -40,13 +40,13 @@ class _BikeCheckoutScreenState extends State<BikeCheckoutScreen> {
           builder: (context, themeState) {
             return SafeArea(
               child: Scaffold(
-                backgroundColor: (themeState as AppThemeSet).themeClass.backgroundColor,
+                backgroundColor: (themeState as AppThemeSet).themeClass.bikeBackgroundColor,
                 appBar: AppBar(
                   backgroundColor: themeState.themeClass.bikeAppBarColor,
                   automaticallyImplyLeading: true,
                   title: CustomText(
                     textString: 'CHECKOUT',
-                    textColor: themeState.themeClass.textColor_2,
+                    textColor: themeState.themeClass.white,
                     fontWeight: FontWeight.bold,
                   ),
                   centerTitle: true,
@@ -65,6 +65,14 @@ class _BikeCheckoutScreenState extends State<BikeCheckoutScreen> {
                             hintText: 'Type here...',
                             fillColor: themeState.themeClass.formFieldBackgroundColor,
                             prefixIcon: Icons.directions_bike,
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'This value cannot be empty';
+                              }
+                              else{
+                                return null;
+                              }
+                            },
                           ),
                         ),
                         Padding(
@@ -187,7 +195,7 @@ class _BikeCheckoutScreenState extends State<BikeCheckoutScreen> {
                                 buttonColor: amtSet?themeState.themeClass.bikeButtonBackgroundColor2:themeState.themeClass.bikeButtonBackgroundColorDisabled,
                                 buttonSize: 85.w,
                                 buttonText: amtSet?'PAY ₹$amt'.toUpperCase():'Enter all details',
-                                buttonTextColor: amtSet?themeState.themeClass.textColor_2:themeState.themeClass.textColor_1,
+                                buttonTextColor: amtSet?themeState.themeClass.white:themeState.themeClass.black,
                                 fontWeight: FontWeight.bold,
                                 borderRadius: 5.w,
                                 onTapEvent: (){

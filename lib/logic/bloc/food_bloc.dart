@@ -179,7 +179,6 @@ class FoodBloc extends Bloc<FoodEvent, FoodState> {
                   foodDetails: foodList[event.index], mainIMG: foodList[event.index]['images'][0], cartCount: cartCount, cart: cart,
                   total: 0, gst: 0, delivery: 50, grandTotal: 0, orderDetails: orderDetails)
           );
-          Navigator.of(event.context).pushNamed(AppRouter.foodDetails);
         }
         else{
           emit(
@@ -187,6 +186,12 @@ class FoodBloc extends Bloc<FoodEvent, FoodState> {
                   foodDetails: foodList[event.index], mainIMG: foodList[event.index]['images'][0], cartCount: cartCount, cart: cart,
                   total: 0, gst: 0, delivery: 50, grandTotal: 0, orderDetails: orderDetails)
           );
+        }
+        if(event.homeScreen) {
+          Navigator.of(event.context).pushNamed(AppRouter.foodDetails);
+        }
+        else{
+          Navigator.pop(event.context);
           Navigator.of(event.context).pushNamed(AppRouter.foodDetails);
         }
       }

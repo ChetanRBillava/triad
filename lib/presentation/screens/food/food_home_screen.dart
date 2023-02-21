@@ -26,8 +26,7 @@ class _FoodHomeScreenState extends State<FoodHomeScreen> {
           builder: (context, themeState) {
             return SafeArea(
                 child: Scaffold(
-                  backgroundColor: (themeState as AppThemeSet).themeClass
-                      .backgroundColor,
+                  backgroundColor: (themeState as AppThemeSet).themeClass.backgroundColor,
                   appBar: AppBar(
                     backgroundColor: themeState.themeClass.foodAppBarColor,
                     leading: GestureDetector(
@@ -37,11 +36,12 @@ class _FoodHomeScreenState extends State<FoodHomeScreen> {
                       child: Icon(
                         Icons.home,
                         size: 20.sp,
+                        color: themeState.themeClass.white,
                       ),
                     ),
                     title: CustomText(
                       textString: 'Welcome ${context.read<FoodBloc>().state.props[0].toString()}',
-                      textColor: themeState.themeClass.textColor_2,
+                      textColor: themeState.themeClass.white,
                       fontWeight: FontWeight.bold,
                       overflow: TextOverflow.ellipsis,
                     ),
@@ -64,13 +64,14 @@ class _FoodHomeScreenState extends State<FoodHomeScreen> {
                         child: Icon(
                           Icons.shopping_cart,
                           size: 20.sp,
+                          color: themeState.themeClass.white,
                         ),
                       ),
                       Padding(
                         padding: EdgeInsets.only(right: 2.w),
                         child: CustomText(
                           textString: context.read<FoodBloc>().state.props[6].toString(),
-                          textColor: themeState.themeClass.textColor_2,
+                          textColor: themeState.themeClass.white,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -89,7 +90,7 @@ class _FoodHomeScreenState extends State<FoodHomeScreen> {
                             childAspectRatio: (46.w / (32.h + 12.sp)),
                           ),
                           itemBuilder: (context, index,) {
-                            return FoodTile(index: index);
+                            return FoodTile(index: index, homeScreen: true,);
                           },
                         ),
                       ),

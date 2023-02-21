@@ -82,6 +82,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin{
           builder: (context, homeState) {
             return SafeArea(
               child: Scaffold(
+                  backgroundColor: (themeState as AppThemeSet).themeClass.backgroundColor,
                   body: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -116,11 +117,11 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin{
                                               width: bikeSizeAnimation.value*5,
                                               height: bikeSizeAnimation.value*5,
                                               decoration: BoxDecoration(
-                                                color: Colors.white,
+                                                color: themeState.themeClass.white,
                                                 borderRadius: BorderRadius.all(Radius.circular(5.w)),
                                                 boxShadow: [
                                                   BoxShadow(
-                                                    color: (themeState as AppThemeSet).themeClass.splashBikeTileShadow,
+                                                    color: (themeState).themeClass.splashBikeTileShadow,
                                                     offset: const Offset(0, 0),
                                                     blurRadius: bikeSizeAnimation.value,
                                                     spreadRadius: bikeSizeAnimation.value*0.33,
@@ -137,6 +138,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin{
                                                   CustomText(
                                                     textString:'BIKE',
                                                     textFontSize: bikeSizeAnimation.value,
+                                                    textColor: themeState.themeClass.black,
                                                   ),
                                                 ],
                                               ),
@@ -162,6 +164,8 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin{
                                         builder: (BuildContext context, double value, Widget? child) {
                                           return GestureDetector(
                                             onTap: (){
+                                              bikeAnimationController.forward();
+                                              quizAnimationController.reverse();
                                               BlocProvider.of<HomeCubit>(context).resetState();
                                               Navigator.of(context).pushNamed(AppRouter.quizHome);
                                             },
@@ -170,11 +174,11 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin{
                                               width: quizSizeAnimation.value*5,
                                               height: quizSizeAnimation.value*5,
                                               decoration: BoxDecoration(
-                                                color: Colors.white,
+                                                color: themeState.themeClass.white,
                                                 borderRadius: BorderRadius.all(Radius.circular(5.w)),
                                                 boxShadow: [
                                                   BoxShadow(
-                                                    color: (themeState as AppThemeSet).themeClass.splashQuizTileShadow,
+                                                    color: (themeState).themeClass.splashQuizTileShadow,
                                                     offset: const Offset(0, 0),
                                                     blurRadius: quizSizeAnimation.value,
                                                     spreadRadius: quizSizeAnimation.value*0.33,
@@ -191,6 +195,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin{
                                                   CustomText(
                                                     textString:'QUIZ',
                                                     textFontSize: quizSizeAnimation.value,
+                                                    textColor: themeState.themeClass.black,
                                                   ),
                                                 ],
                                               ),
@@ -216,6 +221,8 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin{
                                         builder: (BuildContext context, double value, Widget? child) {
                                           return GestureDetector(
                                             onTap: (){
+                                              bikeAnimationController.forward();
+                                              foodAnimationController.reverse();
                                               BlocProvider.of<HomeCubit>(context).resetState();
                                               Navigator.of(context).pushNamed(AppRouter.foodLogin);
                                             },
@@ -224,7 +231,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin{
                                               width: foodSizeAnimation.value*5.2,
                                               height: foodSizeAnimation.value*5.2,
                                               decoration: BoxDecoration(
-                                                color: Colors.white,
+                                                color: themeState.themeClass.white,
                                                 borderRadius: BorderRadius.all(Radius.circular(5.w)),
                                                 boxShadow: [
                                                   BoxShadow(
@@ -245,6 +252,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin{
                                                   CustomText(
                                                     textString:'FOOD',
                                                     textFontSize: foodSizeAnimation.value,
+                                                    textColor: themeState.themeClass.black,
                                                   ),
                                                 ],
                                               ),
@@ -286,7 +294,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin{
                                 height: 10.w,
                                 alignment: Alignment.center,
                                 decoration: BoxDecoration(
-                                    color: Colors.white,
+                                    color: themeState.themeClass.white,
                                     borderRadius: const BorderRadius.all(Radius.circular(10.0)),
                                     border: Border.all(color: Colors.black)
                                 ),
@@ -318,7 +326,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin{
                                 height: 10.w,
                                 alignment: Alignment.center,
                                 decoration: BoxDecoration(
-                                    color: Colors.white,
+                                    color: themeState.themeClass.white,
                                     borderRadius: const BorderRadius.all(Radius.circular(10.0)),
                                     border: Border.all(color: Colors.black)
                                 ),

@@ -25,13 +25,13 @@ class _BikeDetailsScreenState extends State<BikeDetailsScreen> {
       builder: (context, themeState) {
         return SafeArea(
           child: Scaffold(
-            backgroundColor: (themeState as AppThemeSet).themeClass.backgroundColor,
+            backgroundColor: (themeState as AppThemeSet).themeClass.bikeBackgroundColor,
             appBar: AppBar(
               backgroundColor: themeState.themeClass.bikeAppBarColor,
               automaticallyImplyLeading: true,
               title: CustomText(
                 textString: 'Bike details',
-                textColor: themeState.themeClass.textColor_2,
+                textColor: themeState.themeClass.white,
                 fontWeight: FontWeight.bold,
               ),
               centerTitle: true,
@@ -174,7 +174,7 @@ class _BikeDetailsScreenState extends State<BikeDetailsScreen> {
                         child: Container(
                           width: 40.w,
                           height: 0.5.h,
-                          color: themeState.themeClass.textColor_2,
+                          color: themeState.themeClass.white,
                         ),
                       ),
                       Padding(
@@ -184,7 +184,7 @@ class _BikeDetailsScreenState extends State<BikeDetailsScreen> {
                           children: [
                             CustomText(
                               textString: 'Mileage: ${bikeState.bikeDetails['Mileage']}',
-                              textColor: themeState.themeClass.textColor_2,
+                              textColor: themeState.themeClass.white,
                               fontWeight: FontWeight.bold,
                               textFontSize: 14.sp,
                             ),
@@ -219,7 +219,7 @@ class _BikeDetailsScreenState extends State<BikeDetailsScreen> {
                         padding: EdgeInsets.all(2.w),
                         child: CustomText(
                           textString: bikeState.bikeDetails['Description'],
-                          textColor: themeState.themeClass.textColor_2,
+                          textColor: themeState.themeClass.white,
                           textFontSize: 10.sp,
                           textAlign: TextAlign.justify,
                         ),
@@ -231,7 +231,7 @@ class _BikeDetailsScreenState extends State<BikeDetailsScreen> {
                             padding: EdgeInsets.all(5.w),
                             child: CustomText(
                               textString: '₹${bikeState.bikeDetails['Amount']}/D',
-                              textColor: themeState.themeClass.textColor_2,
+                              textColor: themeState.themeClass.white,
                               fontWeight: FontWeight.bold,
                               textFontSize: 18.sp,
                             ),

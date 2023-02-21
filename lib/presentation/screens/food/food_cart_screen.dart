@@ -156,11 +156,11 @@ class _FoodCartScreenState extends State<FoodCartScreen> {
                                                       onTap: (){
                                                         BlocProvider.of<FoodBloc>(context).add(FoodRemoveFromCart(foodDetails: foodState.cart[i], context: context));
                                                       },
-                                                      child: const Icon(Icons.remove)
+                                                      child: Icon(Icons.remove, color: themeState.themeClass.textColor_1,)
                                                   ),
                                                   Container(
                                                     decoration: BoxDecoration(
-                                                        border: Border.all()
+                                                        border: Border.all(color: themeState.themeClass.textColor_1)
                                                     ),
                                                     child: Padding(
                                                       padding: EdgeInsets.only(left: 3.w, right: 3.w),
@@ -168,6 +168,7 @@ class _FoodCartScreenState extends State<FoodCartScreen> {
                                                         textString: foodState.cart[i]['count'].toString(),
                                                         textFontSize: 14.sp,
                                                         fontWeight: FontWeight.bold,
+                                                        textColor: themeState.themeClass.textColor_1,
                                                       ),
                                                     ),
                                                   ),
@@ -175,8 +176,9 @@ class _FoodCartScreenState extends State<FoodCartScreen> {
                                                     onTap: (){
                                                       BlocProvider.of<FoodBloc>(context).add(FoodAddToCart(foodDetails: foodState.cart[i], context: context));
                                                     },
-                                                    child: const Icon(
-                                                        Icons.add
+                                                    child: Icon(
+                                                        Icons.add,
+                                                      color: themeState.themeClass.textColor_1,
                                                     ),
                                                   ),
                                                 ],
@@ -196,7 +198,7 @@ class _FoodCartScreenState extends State<FoodCartScreen> {
                     ),
                     Column(
                       children: [
-                        const SeparatorWidget(),
+                        SeparatorWidget(color: themeState.themeClass.textColor_1,),
 
                         Row(
                           children: [

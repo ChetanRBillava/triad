@@ -23,6 +23,15 @@ Here we write the updates of future releases.
 ### Security
 
 
+## [1.2.3] - 21-02-2023
+
+### Added
+- Dark theme in "lib/core/themes/app_theme.dart" file
+
+### Changed
+- Color references in few screens
+
+
 ## [1.2.2] - 21-02-2023
 
 ### Added

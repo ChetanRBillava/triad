@@ -32,13 +32,13 @@ class _BikeOrderSuccessScreenState extends State<BikeOrderSuccessScreen> {
       builder: (context, themeState) {
         return SafeArea(
           child: Scaffold(
-            backgroundColor: (themeState as AppThemeSet).themeClass.backgroundColor,
+            backgroundColor: (themeState as AppThemeSet).themeClass.bikeBackgroundColor,
             appBar: AppBar(
               backgroundColor: themeState.themeClass.bikeAppBarColor,
               automaticallyImplyLeading: true,
               title: CustomText(
                 textString: 'Order complete'.toUpperCase(),
-                textColor: themeState.themeClass.textColor_2,
+                textColor: themeState.themeClass.white,
                 fontWeight: FontWeight.bold,
               ),
               centerTitle: true,

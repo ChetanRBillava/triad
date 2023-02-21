@@ -89,7 +89,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
               decoration: (widget.prefixIcon!=null && widget.suffixIcon!=null)?InputDecoration(
                 filled: widget.fillColor!=null?true:false,
                 fillColor: widget.fillColor,
-                prefixIcon: Icon(widget.prefixIcon),
+                prefixIcon: Icon(widget.prefixIcon, color: (themeState).themeClass.textCaptionColor,),
                 suffixIcon: widget.suffixIcon,
                 /*labelText: widget.labelText,
                 labelStyle: GoogleFonts.poppins(
@@ -120,7 +120,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
               (widget.prefixIcon!=null)?InputDecoration(
                 filled: widget.fillColor!=null?true:false,
                 fillColor: widget.fillColor,
-                prefixIcon: Icon(widget.prefixIcon),
+                prefixIcon: Icon(widget.prefixIcon, color: (themeState).themeClass.textCaptionColor,),
                 /*labelText: widget.labelText,
                 labelStyle: GoogleFonts.poppins(
                     color: (themeState).themeClass.textColor_1,
