@@ -27,12 +27,13 @@ class FoodUserRegister extends FoodEvent{
 class FoodSelected extends FoodEvent{
   final BuildContext context;
   final int index;
+  final bool homeScreen;
 
-  const FoodSelected({required this.index, required this.context});
+  const FoodSelected({required this.index, required this.context, required this.homeScreen});
 
   @override
   // TODO: implement props
-  List<Object?> get props => [index, context];
+  List<Object?> get props => [index, context, homeScreen];
 }
 
 class FoodToggleMainURL extends FoodEvent{

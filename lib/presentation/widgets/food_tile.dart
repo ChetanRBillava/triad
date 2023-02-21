@@ -11,9 +11,11 @@ import '../utils/custom_text.dart';
 
 class FoodTile extends StatefulWidget {
   final int index;
+  final bool homeScreen;
   const FoodTile({
     super.key,
-    required this.index
+    required this.index,
+    required this.homeScreen,
   });
 
   @override
@@ -27,7 +29,7 @@ class _FoodTileState extends State<FoodTile> {
       builder: (context, themeState) {
         return GestureDetector(
           onTap: (){
-            BlocProvider.of<FoodBloc>(context).add(FoodSelected(index: widget.index, context: context));
+            BlocProvider.of<FoodBloc>(context).add(FoodSelected(index: widget.index, context: context, homeScreen: widget.homeScreen));
           },
           child: Card(
             shape: RoundedRectangleBorder(
@@ -64,7 +66,7 @@ class _FoodTileState extends State<FoodTile> {
                                     children: [
                                       CustomText(
                                         textString: '₹${foodList[widget.index]['amount']}',
-                                        textColor: themeState.themeClass.textColor_2,
+                                        textColor: themeState.themeClass.white,
                                         fontWeight: FontWeight.bold,
                                       ),
                                     ],
@@ -77,7 +79,7 @@ class _FoodTileState extends State<FoodTile> {
                                           textString: foodList[widget.index]['name'],
                                           maxLines: 1,
                                           overflow: TextOverflow.ellipsis,
-                                          textColor: themeState.themeClass.textColor_2,
+                                          textColor: themeState.themeClass.white,
                                           fontWeight: FontWeight.bold,
                                           textFontSize: 14.sp,
                                         ),
@@ -90,7 +92,7 @@ class _FoodTileState extends State<FoodTile> {
                                     child: CustomText(
                                       textString: foodList[widget.index]['description'],
                                       maxLines: 4,
-                                      textColor: themeState.themeClass.textColor_2,
+                                      textColor: themeState.themeClass.white,
                                       fontWeight: FontWeight.bold,
                                       overflow: TextOverflow.ellipsis,
                                       textFontSize: 8.sp,
@@ -118,7 +120,7 @@ class _FoodTileState extends State<FoodTile> {
                   ],
                 ),
                 CustomButton(
-                  buttonColor: themeState.themeClass.foodButtonColor, buttonTextColor: themeState.themeClass.textColor_2,
+                  buttonColor: themeState.themeClass.foodButtonColor, buttonTextColor: themeState.themeClass.white,
                   buttonSize: 46.w, buttonText: 'ADD', fontWeight: FontWeight.bold,
                   onlyRadius: true,
                   borderRadiusBL: 20, borderRadiusBR: 20,

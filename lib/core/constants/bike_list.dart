@@ -22,7 +22,7 @@ List<Map> bikes = [
     'Brand':'Honda',
     'Description':'The Honda Dio is an Indian scooter manufactured by Honda Motorcycle and Scooter India. It is being built at the plant in Narsapura, Karnataka. It was introduced in 2001 and has crossed 30 lakh sales milestone in 2019.',
     'Mileage':'50 KM/L',
-    'Amount': '999',
+    'Amount': '699',
     'Rating': '3.5',
     'URL': AppImages.dio,
     'images':[

@@ -8,6 +8,7 @@ import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:text_to_speech/text_to_speech.dart';
 
 import '../../presentation/router/app_router.dart';
 import '../../presentation/utils/custom_print.dart';
@@ -77,6 +78,8 @@ class FoodBloc extends Bloc<FoodEvent, FoodState> {
                     content: Text('Welcome $name'),
                   )
               );
+              TextToSpeech tts = TextToSpeech();
+              tts.speak('Welcome $name');
               Navigator.of(event.context).pushNamed(AppRouter.foodHome);
             }
             else{
@@ -103,26 +106,71 @@ class FoodBloc extends Bloc<FoodEvent, FoodState> {
         else{
           SharedPreferences prefs = await SharedPreferences.getInstance();
           String encodedMap = prefs.getString('foodUserRegister') ?? '';
+          if(encodedMap == ''){
+            Map userDetails = {
+              'name': event.name,
+              'email': event.email,
+              'password': event.password
+            };
 
-          Map userDetails = {
-            'name': event.name,
-            'email': event.email,
-            'password': event.password
-          };
+            encodedMap = json.encode([userDetails]);
+            customPrint.myCustomPrint(encodedMap);
 
-          encodedMap = json.encode([userDetails]);
-          customPrint.myCustomPrint(encodedMap);
+            prefs.setString('foodUserRegister', encodedMap);
+            emit(FoodUserDetails(name: event.name, email: event.email, password: event.password, cartCount: 0, cart: const [],
+                phone: '', address: '', pincode: '', orderDetails: const {}));
+            ScaffoldMessenger.of(event.context).showSnackBar(
+                SnackBar(
+                  duration: const Duration(seconds: 2),
+                  content: Text('Welcome ${event.name}'),
+                )
+            );
+            TextToSpeech tts = TextToSpeech();
+            tts.speak('Welcome ${event.name}');
+            Navigator.of(event.context).pushNamed(AppRouter.foodHome);
+          }
+          else{
+            customPrint.myCustomPrint('Users found');
+            List users = json.decode(encodedMap);
+            customPrint.myCustomPrint(users);
+            bool exists = false;
+            String name = '';
+            for (var element in users) {
+              customPrint.myCustomPrint(element);
+              if(element['email'] == event.email){
+                exists = true;
+                break;
+              }
+              else{
+                continue;
+              }
+            }
 
-          prefs.setString('foodUserRegister', encodedMap);
-          emit(FoodUserDetails(name: event.name, email: event.email, password: event.password, cartCount: 0, cart: const [],
-              phone: '', address: '', pincode: '', orderDetails: {}));
-          ScaffoldMessenger.of(event.context).showSnackBar(
-              SnackBar(
-                duration: const Duration(seconds: 2),
-                content: Text('Welcome ${event.name}'),
-              )
-          );
-          Navigator.of(event.context).pushNamed(AppRouter.foodHome);
+            if(!exists){
+              emit(FoodUserDetails(name: event.name, email: event.email, password: event.password, cartCount: 0, cart: const [], orderDetails: {},
+                  phone: '', address: '', pincode: ''));
+
+              ScaffoldMessenger.of(event.context).showSnackBar(
+                  SnackBar(
+                    duration: const Duration(seconds: 2),
+                    content: Text('Welcome $name'),
+                  )
+              );
+              TextToSpeech tts = TextToSpeech();
+              tts.speak('Welcome $name');
+              Navigator.of(event.context).pushNamed(AppRouter.foodHome);
+            }
+            else{
+              ScaffoldMessenger.of(event.context).showSnackBar(
+                  const SnackBar(
+                    duration: Duration(seconds: 2),
+                    content: Text('User already registered'),
+                  )
+              );
+
+            }
+          }
+
         }
       }
       else if(event is FoodSelected){
@@ -138,7 +186,6 @@ class FoodBloc extends Bloc<FoodEvent, FoodState> {
                   foodDetails: foodList[event.index], mainIMG: foodList[event.index]['images'][0], cartCount: cartCount, cart: cart,
                   total: 0, gst: 0, delivery: 50, grandTotal: 0, orderDetails: orderDetails)
           );
-          Navigator.of(event.context).pushNamed(AppRouter.foodDetails);
         }
         else{
           emit(
@@ -146,6 +193,12 @@ class FoodBloc extends Bloc<FoodEvent, FoodState> {
                   foodDetails: foodList[event.index], mainIMG: foodList[event.index]['images'][0], cartCount: cartCount, cart: cart,
                   total: 0, gst: 0, delivery: 50, grandTotal: 0, orderDetails: orderDetails)
           );
+        }
+        if(event.homeScreen) {
+          Navigator.of(event.context).pushNamed(AppRouter.foodDetails);
+        }
+        else{
+          Navigator.pop(event.context);
           Navigator.of(event.context).pushNamed(AppRouter.foodDetails);
         }
       }
@@ -359,6 +412,8 @@ class FoodBloc extends Bloc<FoodEvent, FoodState> {
         };
 
 
+        TextToSpeech tts = TextToSpeech();
+        tts.speak('Your order is complete $name');
         emit(FoodDetails(name: name, email: email, phone: phone, address:  address, pincode: pincode, password: password, foodDetails: foodDetails,
             mainIMG: mainIMG, cartCount: 0, cart: const [], total: 0, gst: 0, delivery: 0, grandTotal: 0, orderDetails: orderDetails));
         Navigator.of(event.context).pushNamed(AppRouter.foodHome);

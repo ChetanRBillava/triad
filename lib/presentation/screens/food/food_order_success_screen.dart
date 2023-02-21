@@ -39,7 +39,7 @@ class _FoodOrderSuccessScreenState extends State<FoodOrderSuccessScreen> {
               automaticallyImplyLeading: true,
               title: CustomText(
                 textString: 'Payment status'.toUpperCase(),
-                textColor: themeState.themeClass.textColor_2,
+                textColor: themeState.themeClass.white,
                 fontWeight: FontWeight.bold,
               ),
               centerTitle: true,

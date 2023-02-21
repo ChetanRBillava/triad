@@ -19,4 +19,8 @@ class HomeCubit extends Cubit<HomeState> {
       emit(HomeState(position: (currentPos-1)%3));
     }
   }
+
+  void resetState(){
+    emit(const HomeState(position: 0));
+  }
 }

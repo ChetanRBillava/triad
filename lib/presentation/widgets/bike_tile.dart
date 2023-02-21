@@ -35,6 +35,7 @@ class _BikeTileState extends State<BikeTile> {
                 Padding(
                   padding: EdgeInsets.only(top:12.h, left: 2.w, right: 2.w),
                   child: Card(
+                    color: (themeState as AppThemeSet).themeClass.backgroundColor,
                     shape: RoundedRectangleBorder(
                       //side: BorderSide(color: (themeState as AppThemeSet).themeClass.foodBackgroundColor, width: 1),
                       borderRadius: BorderRadius.circular(10),

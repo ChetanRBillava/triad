@@ -48,7 +48,7 @@ class _QuizQuestionsScreenState extends State<QuizQuestionsScreen> {
                             child: Icon(
                               Icons.home,
                               size: 30.sp,
-                              color: themeState.themeClass.textColor_2,
+                              color: themeState.themeClass.white,
                             ),
                           ),
                         )
@@ -67,7 +67,7 @@ class _QuizQuestionsScreenState extends State<QuizQuestionsScreen> {
                                 textString: 'Question 1'.toUpperCase(),
                                 textFontSize: 24.sp,
                                 fontWeight: FontWeight.bold,
-                                textColor: themeState.themeClass.textColor_2,
+                                textColor: themeState.themeClass.white,
                               ),
                             ],
                           ),
@@ -80,7 +80,7 @@ class _QuizQuestionsScreenState extends State<QuizQuestionsScreen> {
                                 textString: (quizState as QuizStarted).firstQuestion['question'],
                                 textFontSize: 24.sp,
                                 fontWeight: FontWeight.bold,
-                                textColor: themeState.themeClass.textColor_2,
+                                textColor: themeState.themeClass.white,
                               ),
                             ],
                           ),
@@ -164,7 +164,7 @@ class _QuizQuestionsScreenState extends State<QuizQuestionsScreen> {
                                 textString: 'Question 2'.toUpperCase(),
                                 textFontSize: 24.sp,
                                 fontWeight: FontWeight.bold,
-                                textColor: themeState.themeClass.textColor_2,
+                                textColor: themeState.themeClass.white,
                               ),
                             ],
                           ),
@@ -177,7 +177,7 @@ class _QuizQuestionsScreenState extends State<QuizQuestionsScreen> {
                                 textString: (quizState as QuizStarted).secondQuestion['question'],
                                 textFontSize: 24.sp,
                                 fontWeight: FontWeight.bold,
-                                textColor: themeState.themeClass.textColor_2,
+                                textColor: themeState.themeClass.white,
                               ),
                             ],
                           ),
@@ -249,7 +249,7 @@ class _QuizQuestionsScreenState extends State<QuizQuestionsScreen> {
                                 textString: 'Question 3'.toUpperCase(),
                                 textFontSize: 24.sp,
                                 fontWeight: FontWeight.bold,
-                                textColor: themeState.themeClass.textColor_2,
+                                textColor: themeState.themeClass.white,
                               ),
                             ],
                           ),
@@ -262,7 +262,7 @@ class _QuizQuestionsScreenState extends State<QuizQuestionsScreen> {
                                 textString: (quizState as QuizStarted).thirdQuestion['question'],
                                 textFontSize: 24.sp,
                                 fontWeight: FontWeight.bold,
-                                textColor: themeState.themeClass.textColor_2,
+                                textColor: themeState.themeClass.white,
                               ),
                             ],
                           ),
@@ -343,6 +343,7 @@ class _QuizQuestionsScreenState extends State<QuizQuestionsScreen> {
                           child: CustomButton(
                             buttonColor: themeState.themeClass.buttonBackgroundColor2,
                             iconData: Icons.arrow_back_ios,
+                            iconColor: themeState.themeClass.textColor_1,
                             borderRadius: 15,
                             fontWeight: FontWeight.bold,
                             onTapEvent: (){
@@ -357,6 +358,7 @@ class _QuizQuestionsScreenState extends State<QuizQuestionsScreen> {
                           child: CustomButton(
                             buttonColor: themeState.themeClass.buttonBackgroundColor2,
                             iconData: Icons.arrow_forward_ios,
+                            iconColor: themeState.themeClass.textColor_1,
                             borderRadius: 15,
                             fontWeight: FontWeight.bold,
                             onTapEvent: (){
@@ -370,6 +372,7 @@ class _QuizQuestionsScreenState extends State<QuizQuestionsScreen> {
                           child: CustomButton(
                             buttonColor: themeState.themeClass.buttonBackgroundColor2,
                             buttonText: 'DONE',
+                            buttonTextColor: themeState.themeClass.textColor_1,
                             borderRadius: 15,
                             fontWeight: FontWeight.bold,
                             onTapEvent: (){

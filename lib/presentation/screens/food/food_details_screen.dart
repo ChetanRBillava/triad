@@ -33,7 +33,7 @@ class _FoodDetailsScreenState extends State<FoodDetailsScreen> {
                   automaticallyImplyLeading: true,
                   title: CustomText(
                     textString: 'Product details'.toUpperCase(),
-                    textColor: themeState.themeClass.textColor_2,
+                    textColor: themeState.themeClass.white,
                     fontWeight: FontWeight.bold,
                   ),
                   centerTitle: true,
@@ -45,13 +45,14 @@ class _FoodDetailsScreenState extends State<FoodDetailsScreen> {
                       child: Icon(
                         Icons.shopping_cart,
                         size: 20.sp,
+                        color: themeState.themeClass.white,
                       ),
                     ),
                     Padding(
                       padding: EdgeInsets.only(right: 2.w),
                       child: CustomText(
                         textString: context.read<FoodBloc>().state.props[6].toString(),
-                        textColor: themeState.themeClass.textColor_2,
+                        textColor: themeState.themeClass.white,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -128,7 +129,7 @@ class _FoodDetailsScreenState extends State<FoodDetailsScreen> {
                                 ),
                                 CustomText(
                                   textString: foodState.foodDetails['type'].toString().toUpperCase(),
-                                  textFontSize: 10.sp,
+                                  textFontSize: 10.sp, fontWeight: FontWeight.bold,
                                   textColor: foodState.foodDetails['type']=='veg'?themeState.themeClass.vegColor:
                                   foodState.foodDetails['type']=='egg'?themeState.themeClass.eggColor:themeState.themeClass.nonvegColor,
                                 ),
@@ -214,7 +215,7 @@ class _FoodDetailsScreenState extends State<FoodDetailsScreen> {
                           children: [
                             CustomButton(
                               buttonColor: themeState.themeClass.foodButtonColor, buttonSize: 90.w,
-                              buttonText: 'ADD', buttonTextColor: themeState.themeClass.textColor_2,
+                              buttonText: 'ADD', buttonTextColor: themeState.themeClass.white,
                               borderRadius: 3.w, fontWeight: FontWeight.bold,
                               onTapEvent: (){
                                 BlocProvider.of<FoodBloc>(context).add(FoodAddToCart(foodDetails: foodState.foodDetails, context: context));
@@ -248,7 +249,7 @@ class _FoodDetailsScreenState extends State<FoodDetailsScreen> {
                             itemBuilder: (context, i) {
                               return Padding(
                                 padding: EdgeInsets.only(left: 2.w, right: 3.w),
-                                child: FoodTile(index: i,),
+                                child: FoodTile(index: i, homeScreen: false,),
                               );
                             },
                           ),

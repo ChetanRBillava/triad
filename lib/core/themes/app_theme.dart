@@ -67,7 +67,7 @@ class LightTheme extends AppTheme{
   Color get backgroundColor => const Color(0xffffffff);
   @override
   // TODO: implement primary
-  Color get formFieldBackgroundColor => const Color(0xffE0DBDB);
+  Color get formFieldBackgroundColor => const Color(0xffffffff);
   @override
   // TODO: implement primary
   Color get enabledFormFieldBorderColor => const Color(0xffE0DBDB);
@@ -140,10 +140,10 @@ class LightTheme extends AppTheme{
   ///quiz screen
   @override
   // TODO: implement primary
-  Color get quizBackgroundColor => const Color(0xffA372F2);
+  Color get quizBackgroundColor => const Color(0xff7a39f1);
   @override
   // TODO: implement primary
-  Color get quizButtonBackgroundColor => const Color(0xffA372F2);
+  Color get quizButtonBackgroundColor => const Color(0xffa874ff);
 
 
   ///food screen
@@ -155,7 +155,7 @@ class LightTheme extends AppTheme{
   Color get foodPrimaryColor => const Color(0xffDB944B);
   @override
   // TODO: implement primary
-  Color get foodFormBackgroundColor => const Color(0xffffffff);
+  Color get foodFormBackgroundColor => const Color(0xffffd0ac);
   @override
   // TODO: implement primary
   Color get foodButtonColor => const Color(0xffDB944B);
@@ -189,4 +189,137 @@ class LightTheme extends AppTheme{
   @override
   // TODO: implement primary
   Color get bikeBorderColor => const Color(0xff216709);
+}
+
+class DarkTheme extends AppTheme{
+  DarkTheme();
+
+  ///main
+  @override
+  // TODO: implement primary
+  Color get backgroundColor => const Color(0xff000000);
+  @override
+  // TODO: implement primary
+  Color get formFieldBackgroundColor => const Color(0xff000000);
+  @override
+  // TODO: implement primary
+  Color get enabledFormFieldBorderColor => const Color(0xff000000);
+  @override
+  // TODO: implement primary
+  Color get focusedFormFieldBorderColor => const Color(0xff000000);
+
+  ///selections
+  @override
+  // TODO: implement primary
+  Color get successColor => const Color(0xff1f8316);
+  @override
+  // TODO: implement primary
+  Color get dangerColor => const Color(0xff941f1f);
+  @override
+  // TODO: implement primary
+  Color get infoColor => const Color(0xff254a93);
+  @override
+  // TODO: implement primary
+  Color get warningColor => const Color(0xffa68e00);
+  @override
+  // TODO: implement primary
+  Color get vegColor => const Color(0xff1f8316);
+  @override
+  // TODO: implement primary
+  Color get nonvegColor => const Color(0xff941f1f);
+  @override
+  // TODO: implement primary
+  Color get eggColor => const Color(0xff671515);
+
+  ///texts
+  @override
+  // TODO: implement primary
+  Color get textColor_1 => const Color(0xffffffff);
+  @override
+  // TODO: implement primary
+  Color get textColor_2 => const Color(0xff000000);
+  @override
+  // TODO: implement primary
+  Color get textCaptionColor => const Color(0xff656565);
+
+  ///button
+  @override
+  // TODO: implement primary
+  Color get buttonBackgroundColor => const Color(0xff254a93);
+  @override
+  // TODO: implement primary
+  Color get buttonBackgroundColor2 => const Color(0xff000000);
+
+  ///constant colors
+  @override
+  // TODO: implement primary
+  Color get white => const Color(0xffffffff);
+  @override
+  // TODO: implement primary
+  Color get black => const Color(0xff000000);
+
+  ///splash screen
+  @override
+  // TODO: implement primary
+  Color get splashBikeTileShadow => const Color(0xff279b35);
+  @override
+  // TODO: implement primary
+  Color get splashQuizTileShadow => const Color(0xff5f3793);
+  @override
+  // TODO: implement primary
+  Color get splashFoodTileShadow => const Color(0xff96672b);
+
+
+  ///quiz screen
+  @override
+  // TODO: implement primary
+  Color get quizBackgroundColor => const Color(0xff1f014f);
+  @override
+  // TODO: implement primary
+  Color get quizButtonBackgroundColor => const Color(0xff4001a8);
+
+
+  ///food screen
+  @override
+  // TODO: implement primary
+  Color get foodBackgroundColor => const Color(0xff964d00);
+  @override
+  // TODO: implement primary
+  Color get foodPrimaryColor => const Color(0xff964d00);
+  @override
+  // TODO: implement primary
+  Color get foodFormBackgroundColor => const Color(0xff3f2201);
+  @override
+  // TODO: implement primary
+  Color get foodButtonColor => const Color(0xff964d00);
+  @override
+  // TODO: implement primary
+  Color get foodTextColor => const Color(0xffc26600);
+  @override
+  // TODO: implement primary
+  Color get foodAppBarColor => const Color(0xff964d00);
+
+
+  ///bike screen
+  @override
+  // TODO: implement primary
+  Color get bikeBackgroundColor => const Color(0xff042a04);
+  @override
+  // TODO: implement primary
+  Color get bikeLoginBackgroundColor => const Color(0xff008310);
+  @override
+  // TODO: implement primary
+  Color get bikeButtonBackgroundColor => const Color(0xff042a04);
+  @override
+  // TODO: implement primary
+  Color get bikeButtonBackgroundColor2 => const Color(0xff008310);
+  @override
+  // TODO: implement primary
+  Color get bikeButtonBackgroundColorDisabled => const Color(0xff388040);
+  @override
+  // TODO: implement primary
+  Color get bikeAppBarColor => const Color(0xff015e08);
+  @override
+  // TODO: implement primary
+  Color get bikeBorderColor => const Color(0xff008310);
 }

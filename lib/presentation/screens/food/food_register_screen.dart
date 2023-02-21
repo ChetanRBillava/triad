@@ -41,9 +41,10 @@ class _FoodRegisterScreenState extends State<FoodRegisterScreen> {
                     children: [
                       Card(
                         shape: RoundedRectangleBorder(
-                          side: const BorderSide(color: Colors.white70, width: 1),
+                          side: BorderSide(color: themeState.themeClass.white, width: 1),
                           borderRadius: BorderRadius.circular(20),
                         ),
+                        color: themeState.themeClass.formFieldBackgroundColor,
                         elevation: 15,
                         child: Container(
                           decoration: BoxDecoration(
@@ -63,7 +64,7 @@ class _FoodRegisterScreenState extends State<FoodRegisterScreen> {
                                     padding: EdgeInsets.all(3.w),
                                     child: Icon(
                                       Icons.restaurant,
-                                      color: themeState.themeClass.textColor_2,
+                                      color: themeState.themeClass.white,
                                       size: 60.sp,
                                     ),
                                   ),
@@ -75,8 +76,9 @@ class _FoodRegisterScreenState extends State<FoodRegisterScreen> {
                                 child: CustomTextField(
                                   controller: nameController,
                                   labelText: 'Name',
+                                  labelTextColor: themeState.themeClass.textColor_1,
                                   hintText: 'Type here...',
-                                  fillColor: themeState.themeClass.formFieldBackgroundColor,
+                                  fillColor: themeState.themeClass.foodFormBackgroundColor,
                                 ),
                               ),
 
@@ -85,8 +87,9 @@ class _FoodRegisterScreenState extends State<FoodRegisterScreen> {
                                 child: CustomTextField(
                                   controller: emailController,
                                   labelText: 'E-mail',
+                                  labelTextColor: themeState.themeClass.textColor_1,
                                   hintText: 'Type here...',
-                                  fillColor: themeState.themeClass.formFieldBackgroundColor,
+                                  fillColor: themeState.themeClass.foodFormBackgroundColor,
                                 ),
                               ),
 
@@ -95,8 +98,9 @@ class _FoodRegisterScreenState extends State<FoodRegisterScreen> {
                                 child: CustomTextField(
                                   controller: passwordController,
                                   labelText: 'Password',
+                                  labelTextColor: themeState.themeClass.textColor_1,
                                   hintText: 'Type here...',
-                                  fillColor: themeState.themeClass.formFieldBackgroundColor,
+                                  fillColor: themeState.themeClass.foodFormBackgroundColor,
                                 ),
                               ),
 
@@ -124,14 +128,24 @@ class _FoodRegisterScreenState extends State<FoodRegisterScreen> {
                                   buttonColor: themeState.themeClass.foodButtonColor,
                                   buttonSize: 50.w,
                                   buttonText: 'REGISTER',
-                                  buttonTextColor: themeState.themeClass.textColor_2,
+                                  buttonTextColor: themeState.themeClass.white,
                                   fontWeight: FontWeight.bold,
                                   borderRadius: 10,
                                   onTapEvent: (){
-                                    BlocProvider.of<FoodBloc>(context).add(FoodUserRegister(
-                                        context: context, name: nameController.text, email: emailController.text,
-                                        password: passwordController.text
-                                    ));
+                                    if(!isChecked){
+                                      ScaffoldMessenger.of(context).showSnackBar(
+                                          const SnackBar(
+                                            duration: Duration(seconds: 3),
+                                            content: Text('Please click on the checkbox'),
+                                          )
+                                      );
+                                    }
+                                    else{
+                                      BlocProvider.of<FoodBloc>(context).add(FoodUserRegister(
+                                          context: context, name: nameController.text, email: emailController.text,
+                                          password: passwordController.text
+                                      ));
+                                    }
                                   },
                                 ),
                               ),

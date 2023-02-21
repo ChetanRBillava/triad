@@ -19,7 +19,6 @@ class _FoodOrderDetailsScreenState extends State<FoodOrderDetailsScreen> {
   Widget build(BuildContext context) {
     return BlocBuilder<FoodBloc, FoodState>(
       builder: (context, foodState) {
-        print((foodState as FoodDetails).orderDetails['products']);
         return BlocBuilder<AppThemeCubit, AppThemeState>(
           builder: (context, themeState) {
             return SafeArea(
@@ -30,7 +29,7 @@ class _FoodOrderDetailsScreenState extends State<FoodOrderDetailsScreen> {
                   automaticallyImplyLeading: true,
                   title: CustomText(
                     textString: 'Payment status'.toUpperCase(),
-                    textColor: themeState.themeClass.textColor_2,
+                    textColor: themeState.themeClass.white,
                     fontWeight: FontWeight.bold,
                   ),
                   centerTitle: true,
@@ -180,7 +179,7 @@ class _FoodOrderDetailsScreenState extends State<FoodOrderDetailsScreen> {
                       children: [
                         Column(
                           children: [
-                            const SeparatorWidget(),
+                            SeparatorWidget(color: themeState.themeClass.textColor_1,),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
@@ -255,7 +254,7 @@ class _FoodOrderDetailsScreenState extends State<FoodOrderDetailsScreen> {
 
                         Column(
                           children: [
-                            const SeparatorWidget(),
+                            SeparatorWidget(color: themeState.themeClass.textColor_1,),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [

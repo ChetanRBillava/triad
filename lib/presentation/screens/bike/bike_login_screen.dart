@@ -48,7 +48,7 @@ class _BikeLoginScreenState extends State<BikeLoginScreen> {
                               Card(
                                 color: themeState.themeClass.bikeLoginBackgroundColor,
                                 shape: RoundedRectangleBorder(
-                                  side: const BorderSide(color: Colors.white70, width: 1),
+                                  side: BorderSide(color: themeState.themeClass.white, width: 1),
                                   borderRadius: BorderRadius.circular(20),
                                 ),
                                 elevation: 15,
@@ -76,7 +76,7 @@ class _BikeLoginScreenState extends State<BikeLoginScreen> {
                                                 textString: 'LOGIN',
                                                 textFontSize: inLogin?24.sp:16.sp,
                                                 fontWeight: inLogin?FontWeight.bold:FontWeight.normal,
-                                                textColor: inLogin?themeState.themeClass.textColor_2:themeState.themeClass.textColor_1,
+                                                textColor: inLogin?themeState.themeClass.white:themeState.themeClass.black,
                                               ),
                                             ),
                                             Container(height: 20.sp, width: 1.w, color: themeState.themeClass.textColor_2,),
@@ -90,7 +90,7 @@ class _BikeLoginScreenState extends State<BikeLoginScreen> {
                                                 textString: 'REGISTER',
                                                 textFontSize: !inLogin?24.sp:16.sp,
                                                 fontWeight: !inLogin?FontWeight.bold:FontWeight.normal,
-                                                textColor: !inLogin?themeState.themeClass.textColor_2:themeState.themeClass.textColor_1,
+                                                textColor: !inLogin?themeState.themeClass.white:themeState.themeClass.black,
                                               ),
                                             ),
                                           ],
@@ -105,7 +105,7 @@ class _BikeLoginScreenState extends State<BikeLoginScreen> {
                                             child: CustomTextField(
                                               controller: emailController,
                                               labelText: 'E-mail',
-                                              labelTextColor: themeState.themeClass.textColor_2,
+                                              labelTextColor: themeState.themeClass.white,
                                               labelFontWeight: FontWeight.bold,
                                               hintText: 'Type here...',
                                               fillColor: themeState.themeClass.formFieldBackgroundColor,
@@ -118,7 +118,7 @@ class _BikeLoginScreenState extends State<BikeLoginScreen> {
                                             child: CustomTextField(
                                               controller: passwordController,
                                               labelText: 'Password',
-                                              labelTextColor: themeState.themeClass.textColor_2,
+                                              labelTextColor: themeState.themeClass.white,
                                               labelFontWeight: FontWeight.bold,
                                               hintText: 'Type here...',
                                               fillColor: themeState.themeClass.formFieldBackgroundColor,
@@ -151,7 +151,7 @@ class _BikeLoginScreenState extends State<BikeLoginScreen> {
                                             child: CustomTextField(
                                               controller: nameController,
                                               labelText: 'Name',
-                                              labelTextColor: themeState.themeClass.textColor_2,
+                                              labelTextColor: themeState.themeClass.white,
                                               labelFontWeight: FontWeight.bold,
                                               hintText: 'Type here...',
                                               fillColor: themeState.themeClass.formFieldBackgroundColor,
@@ -163,7 +163,7 @@ class _BikeLoginScreenState extends State<BikeLoginScreen> {
                                             child: CustomTextField(
                                               controller: emailController,
                                               labelText: 'E-mail',
-                                              labelTextColor: themeState.themeClass.textColor_2,
+                                              labelTextColor: themeState.themeClass.white,
                                               labelFontWeight: FontWeight.bold,
                                               hintText: 'Type here...',
                                               fillColor: themeState.themeClass.formFieldBackgroundColor,
@@ -176,7 +176,7 @@ class _BikeLoginScreenState extends State<BikeLoginScreen> {
                                             child: CustomTextField(
                                               controller: phoneController,
                                               labelText: 'Phone',
-                                              labelTextColor: themeState.themeClass.textColor_2,
+                                              labelTextColor: themeState.themeClass.white,
                                               labelFontWeight: FontWeight.bold,
                                               hintText: 'Type here...',
                                               fillColor: themeState.themeClass.formFieldBackgroundColor,
@@ -189,7 +189,7 @@ class _BikeLoginScreenState extends State<BikeLoginScreen> {
                                             child: CustomTextField(
                                               controller: passwordController,
                                               labelText: 'Password',
-                                              labelTextColor: themeState.themeClass.textColor_2,
+                                              labelTextColor: themeState.themeClass.white,
                                               labelFontWeight: FontWeight.bold,
                                               hintText: 'Type here...',
                                               fillColor: themeState.themeClass.formFieldBackgroundColor,
@@ -227,8 +227,8 @@ class _BikeLoginScreenState extends State<BikeLoginScreen> {
 
                                                 if(!isChecked){
                                                   ScaffoldMessenger.of(context).showSnackBar(
-                                                      SnackBar(
-                                                        duration: const Duration(seconds: 3),
+                                                      const SnackBar(
+                                                        duration: Duration(seconds: 3),
                                                         content: Text('Please click on the checkbox'),
                                                       )
                                                   );

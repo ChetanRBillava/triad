@@ -35,9 +35,10 @@ class _FoodLoginScreenState extends State<FoodLoginScreen> {
                     children: [
                       Card(
                         shape: RoundedRectangleBorder(
-                          side: const BorderSide(color: Colors.white70, width: 1),
+                          side: BorderSide(color: themeState.themeClass.white, width: 1),
                           borderRadius: BorderRadius.circular(20),
                         ),
+                        color: themeState.themeClass.formFieldBackgroundColor,
                         elevation: 15,
                         child: Container(
                           decoration: BoxDecoration(
@@ -57,7 +58,7 @@ class _FoodLoginScreenState extends State<FoodLoginScreen> {
                                     padding: EdgeInsets.all(3.w),
                                     child: Icon(
                                       Icons.restaurant,
-                                      color: themeState.themeClass.textColor_2,
+                                      color: themeState.themeClass.white,
                                       size: 60.sp,
                                     ),
                                   ),
@@ -69,8 +70,9 @@ class _FoodLoginScreenState extends State<FoodLoginScreen> {
                                 child: CustomTextField(
                                   controller: emailController,
                                   labelText: 'E-mail',
+                                  labelTextColor: themeState.themeClass.textColor_1,
                                   hintText: 'Type here...',
-                                  fillColor: themeState.themeClass.formFieldBackgroundColor,
+                                  fillColor: themeState.themeClass.foodFormBackgroundColor,
                                 ),
                               ),
 
@@ -79,8 +81,9 @@ class _FoodLoginScreenState extends State<FoodLoginScreen> {
                                 child: CustomTextField(
                                   controller: passwordController,
                                   labelText: 'Password',
+                                  labelTextColor: themeState.themeClass.textColor_1,
                                   hintText: 'Type here...',
-                                  fillColor: themeState.themeClass.formFieldBackgroundColor,
+                                  fillColor: themeState.themeClass.foodFormBackgroundColor,
                                 ),
                               ),
 
@@ -90,7 +93,7 @@ class _FoodLoginScreenState extends State<FoodLoginScreen> {
                                   buttonColor: themeState.themeClass.foodButtonColor,
                                   buttonSize: 50.w,
                                   buttonText: 'LOGIN',
-                                  buttonTextColor: themeState.themeClass.textColor_2,
+                                  buttonTextColor: themeState.themeClass.white,
                                   fontWeight: FontWeight.bold,
                                   borderRadius: 10,
                                   onTapEvent: (){
