@@ -7,10 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased] - dd-mm-yyyy
 Here we write the updates of future releases.
 
-1.1.xx belongs to logic integration of all the modules
+1.2.xx belongs to patches and upgrades
 
 ### Added
-- Logics for all modules
+- Patches and upgrades
 
 ### Changed
 
@@ -21,6 +21,12 @@ Here we write the updates of future releases.
 ### Fixed
 
 ### Security
+
+
+## [1.2.0] - 21-02-2023
+
+### Added
+- Tween animation in home screen
 
 
 ## [1.1.2] - 20-02-2023
