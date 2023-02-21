@@ -109,6 +109,9 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin{
                                         builder: (BuildContext context, double value, Widget? child) {
                                           return GestureDetector(
                                             onTap: (){
+                                              bikeAnimationController.forward();
+                                              foodAnimationController.reverse();
+                                              quizAnimationController.reverse();
                                               BlocProvider.of<HomeCubit>(context).resetState();
                                               Navigator.of(context).pushNamed(AppRouter.bikeLogin);
                                             },
@@ -165,6 +168,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin{
                                           return GestureDetector(
                                             onTap: (){
                                               bikeAnimationController.forward();
+                                              foodAnimationController.reverse();
                                               quizAnimationController.reverse();
                                               BlocProvider.of<HomeCubit>(context).resetState();
                                               Navigator.of(context).pushNamed(AppRouter.quizHome);
@@ -223,6 +227,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin{
                                             onTap: (){
                                               bikeAnimationController.forward();
                                               foodAnimationController.reverse();
+                                              quizAnimationController.reverse();
                                               BlocProvider.of<HomeCubit>(context).resetState();
                                               Navigator.of(context).pushNamed(AppRouter.foodLogin);
                                             },
@@ -235,7 +240,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin{
                                                 borderRadius: BorderRadius.all(Radius.circular(5.w)),
                                                 boxShadow: [
                                                   BoxShadow(
-                                                    color: (themeState as AppThemeSet).themeClass.splashFoodTileShadow,
+                                                    color: (themeState).themeClass.splashFoodTileShadow,
                                                     offset: const Offset(0, 0),
                                                     blurRadius: foodSizeAnimation.value,
                                                     spreadRadius: foodSizeAnimation.value*0.33,

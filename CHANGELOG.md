@@ -26,6 +26,12 @@ Here we write the updates of future releases.
 ## [1.2.3] - 21-02-2023
 
 ### Added
+- Text to speech plugin and speech responses throughout appropriate scenarios
+
+
+## [1.2.3] - 21-02-2023
+
+### Added
 - Dark theme in "lib/core/themes/app_theme.dart" file
 
 ### Changed

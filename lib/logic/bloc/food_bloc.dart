@@ -8,6 +8,7 @@ import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:text_to_speech/text_to_speech.dart';
 
 import '../../presentation/router/app_router.dart';
 import '../../presentation/utils/custom_print.dart';
@@ -77,6 +78,8 @@ class FoodBloc extends Bloc<FoodEvent, FoodState> {
                     content: Text('Welcome $name'),
                   )
               );
+              TextToSpeech tts = TextToSpeech();
+              tts.speak('Welcome $name');
               Navigator.of(event.context).pushNamed(AppRouter.foodHome);
             }
             else{
@@ -122,6 +125,8 @@ class FoodBloc extends Bloc<FoodEvent, FoodState> {
                   content: Text('Welcome ${event.name}'),
                 )
             );
+            TextToSpeech tts = TextToSpeech();
+            tts.speak('Welcome ${event.name}');
             Navigator.of(event.context).pushNamed(AppRouter.foodHome);
           }
           else{
@@ -151,6 +156,8 @@ class FoodBloc extends Bloc<FoodEvent, FoodState> {
                     content: Text('Welcome $name'),
                   )
               );
+              TextToSpeech tts = TextToSpeech();
+              tts.speak('Welcome $name');
               Navigator.of(event.context).pushNamed(AppRouter.foodHome);
             }
             else{
@@ -405,6 +412,8 @@ class FoodBloc extends Bloc<FoodEvent, FoodState> {
         };
 
 
+        TextToSpeech tts = TextToSpeech();
+        tts.speak('Your order is complete $name');
         emit(FoodDetails(name: name, email: email, phone: phone, address:  address, pincode: pincode, password: password, foodDetails: foodDetails,
             mainIMG: mainIMG, cartCount: 0, cart: const [], total: 0, gst: 0, delivery: 0, grandTotal: 0, orderDetails: orderDetails));
         Navigator.of(event.context).pushNamed(AppRouter.foodHome);

@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lottie/lottie.dart';
 import 'package:sizer/sizer.dart';
+import 'package:text_to_speech/text_to_speech.dart';
 
 import '../../../logic/cubit/app_theme_cubit.dart';
 import '../../router/app_router.dart';
@@ -20,6 +21,9 @@ class BikeOrderSuccessScreen extends StatefulWidget {
 class _BikeOrderSuccessScreenState extends State<BikeOrderSuccessScreen> {
   @override
   void initState() {
+    TextToSpeech tts = TextToSpeech();
+    tts.speak('Your rental bike has been successfully booked');
+
     Timer(const Duration(seconds: 6), (){
       Navigator.of(context).pushNamed(AppRouter.bikeHome);
     });

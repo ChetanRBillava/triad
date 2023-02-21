@@ -9,6 +9,7 @@ import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:text_to_speech/text_to_speech.dart';
 
 import '../../presentation/router/app_router.dart';
 
@@ -77,6 +78,8 @@ class BikeBloc extends Bloc<BikeEvent, BikeState> {
                     content: Text('Welcome $name'),
                   )
               );
+              TextToSpeech tts = TextToSpeech();
+              tts.speak('Welcome $name');
               Navigator.of(event.context).pushNamed(AppRouter.bikeHome);
             }
             else{
@@ -122,6 +125,8 @@ class BikeBloc extends Bloc<BikeEvent, BikeState> {
                   content: Text('Welcome ${event.name}'),
                 )
             );
+            TextToSpeech tts = TextToSpeech();
+            tts.speak('Welcome ${event.name}');
             Navigator.of(event.context).pushNamed(AppRouter.bikeHome);
           }
           else{
@@ -149,6 +154,8 @@ class BikeBloc extends Bloc<BikeEvent, BikeState> {
                     content: Text('Welcome ${event.name}'),
                   )
               );
+              TextToSpeech tts = TextToSpeech();
+              tts.speak('Welcome ${event.name}');
               Navigator.of(event.context).pushNamed(AppRouter.bikeHome);
             }
             else{

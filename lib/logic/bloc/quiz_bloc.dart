@@ -7,6 +7,7 @@ import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:text_to_speech/text_to_speech.dart';
 
 import '../../core/constants/quizQuestions.dart';
 import '../../presentation/router/app_router.dart';
@@ -152,6 +153,19 @@ class QuizBloc extends Bloc<QuizEvent, QuizState> {
           }
 
 
+          TextToSpeech tts = TextToSpeech();
+          if(score==3){
+            tts.speak('Congratulations ${event.name} It is a perfect score');
+          }
+          else if(score==2){
+            tts.speak('Congratulations ${event.name} you cleared the quiz');
+          }
+          else if(score==1){
+            tts.speak('OOPS ${event.name} Better luck next time');
+          }
+          else{
+            tts.speak('Oh no Don\'t worry ${event.name} you can always try again');
+          }
           emit(
             QuizResult(firstQuestion: fq, secondQuestion: sq, thirdQuestion: tq,
                 fqANS: fqANS, sqANS: sqANS, tqANS: tqANS, score: score, name: event.name, leaderboard: finalLeaderboard)
