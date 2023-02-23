@@ -3,7 +3,9 @@ import 'package:assignment/logic/bloc/food_bloc.dart';
 import 'package:assignment/logic/bloc/quiz_bloc.dart';
 import 'package:assignment/logic/cubit/app_theme_cubit.dart';
 import 'package:assignment/logic/cubit/home_cubit.dart';
+import 'package:assignment/logic/cubit/internet_cubit.dart';
 import 'package:assignment/presentation/router/app_router.dart';
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -16,6 +18,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  Connectivity connectivity = Connectivity();
   MyApp({super.key});
   bool setColor = false;
 
@@ -23,6 +26,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
+        BlocProvider(
+          create: (context) => InternetCubit(connectivity: connectivity),
+        ),
         BlocProvider(
           create: (context) => AppThemeCubit(),
         ),

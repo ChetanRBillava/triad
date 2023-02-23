@@ -1,3 +1,4 @@
+import 'package:assignment/logic/cubit/internet_cubit.dart';
 import 'package:assignment/presentation/utils/custom_print.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -75,6 +76,103 @@ quizCompletionDialog(BuildContext context) {
                 ],
               ),
             ),
+          );
+        },
+      );
+    },
+  );
+}
+
+noInternetDialog(BuildContext context) {
+// show the dialog
+  showDialog(
+    barrierDismissible: false,
+    context: context,
+    builder: (BuildContext context) {
+      return BlocConsumer<InternetCubit, InternetState>(
+        listener: (context, internetState) {
+          if(internetState is InternetConnected){
+            Navigator.pop(context);
+          }
+        },
+        builder: (context, internetState) {
+          return BlocBuilder<AppThemeCubit, AppThemeState>(
+            builder: (context, themeState) {
+              return Dialog(
+                backgroundColor: (themeState as AppThemeSet).themeClass.dangerColor,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10.sp)),
+                child: SizedBox(
+                  width: 90.w,
+                  height: 29.h,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Flexible(
+                            child: Padding(
+                              padding: EdgeInsets.all(5.w),
+                              child: CustomText(
+                                textString: 'Oops, no internet!!!'.toUpperCase(),
+                                fontWeight: FontWeight.bold,
+                                textAlign: TextAlign.center,
+                                textColor: themeState.themeClass.white,
+                                textFontSize: 16.sp,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Flexible(
+                            child: Padding(
+                              padding: EdgeInsets.all(5.w),
+                              child: CustomText(
+                                textString: 'Some of the features in the app require you to have a stable internet connection!!!',
+                                fontWeight: FontWeight.bold,
+                                textAlign: TextAlign.center,
+                                textColor: themeState.themeClass.white,
+                                textFontSize: 10.sp,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+
+                      Padding(
+                        padding: EdgeInsets.all(2.w),
+                        child: CustomButton(
+                          buttonColor: themeState.themeClass.white,
+                          buttonText: 'Check again'.toUpperCase(),
+                          buttonTextColor: themeState.themeClass.black,
+                          buttonSize: 90.w,
+                          borderRadius: 15,
+                          fontWeight: FontWeight.bold,
+                          onTapEvent: (){
+                            if(internetState is InternetDisconnected){
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                  const SnackBar(
+                                    duration: Duration(seconds: 3),
+                                    content: Text('Please switch on your internet and try again!'),
+                                  )
+                              );
+                            }
+                            else{
+                              Navigator.pop(context);
+                            }
+                          },
+                        ),
+                      )
+
+                    ],
+                  ),
+                ),
+              );
+            },
           );
         },
       );
