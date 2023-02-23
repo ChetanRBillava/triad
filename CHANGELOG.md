@@ -23,7 +23,15 @@ Here we write the updates of future releases.
 ### Security
 
 
-## [1.2.3] - 21-02-2023
+## [1.2.5] - 23-02-2023
+
+### Added
+- Connectivity plugin
+- Internet cubit set
+- Dialog to be triggered on internet state change
+
+
+## [1.2.4] - 21-02-2023
 
 ### Added
 - Text to speech plugin and speech responses throughout appropriate scenarios

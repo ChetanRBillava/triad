@@ -3,7 +3,7 @@ description: My first flutter assignment at Niveus.
 
 publish_to: 'none'
 
-version: 1.2.4+15
+version: 1.2.5+16
 
 environment:
   sdk: '>=2.19.2 <3.0.0'
@@ -19,6 +19,7 @@ dependencies:
   lottie:
   shared_preferences:
   text_to_speech:
+  connectivity_plus:
 
 dev_dependencies:
   flutter_test:
