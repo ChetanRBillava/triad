@@ -56,6 +56,29 @@ class _FoodDetailsScreenState extends State<FoodDetailsScreen> {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
+                    Padding(
+                      padding: EdgeInsets.only(right: 2.w),
+                      child: GestureDetector(
+                        onTap: () {
+                          if(foodState.props[8]=={}){
+                            ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                  duration: Duration(seconds: 1),
+                                  content: Text('Order history not found'),
+                                )
+                            );
+                          }
+                          else{
+                            Navigator.of(context).pushNamed(AppRouter.foodOrderDetails);
+                          }
+                        },
+                        child: Icon(
+                          Icons.assignment,
+                          size: 20.sp,
+                          color: themeState.themeClass.white,
+                        ),
+                      ),
+                    ),
 
                   ],
                 ),

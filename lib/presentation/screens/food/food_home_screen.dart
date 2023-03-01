@@ -8,6 +8,7 @@ import 'package:sizer/sizer.dart';
 
 import '../../../core/constants/food_list.dart';
 import '../../../logic/bloc/food_bloc.dart';
+import '../../utils/custom_print.dart';
 import '../../widgets/food_tile.dart';
 
 class FoodHomeScreen extends StatefulWidget {
@@ -73,6 +74,29 @@ class _FoodHomeScreenState extends State<FoodHomeScreen> {
                           textString: context.read<FoodBloc>().state.props[6].toString(),
                           textColor: themeState.themeClass.white,
                           fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(right: 2.w),
+                        child: GestureDetector(
+                          onTap: () {
+                            if(foodState.props[8]=={}){
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                  const SnackBar(
+                                    duration: Duration(seconds: 1),
+                                    content: Text('Order history not found'),
+                                  )
+                              );
+                            }
+                            else{
+                              Navigator.of(context).pushNamed(AppRouter.foodOrderDetails);
+                            }
+                          },
+                          child: Icon(
+                            Icons.assignment,
+                            size: 20.sp,
+                            color: themeState.themeClass.white,
+                          ),
                         ),
                       ),
 

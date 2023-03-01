@@ -23,6 +23,16 @@ Here we write the updates of future releases.
 ### Security
 
 
+## [1.2.6] - 01-03-2023
+
+### Added
+- Order screen navigation for food module
+- Stored order details using Shared Preferences
+
+### Changed
+- State reference from "FoodDetails" to "FoodUserDetails" in "lib/presentation/screens/food/food_order_details_screen.dart"
+
+
 ## [1.2.5] - 23-02-2023
 
 ### Added
