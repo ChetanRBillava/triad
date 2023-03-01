@@ -40,7 +40,7 @@ class _FoodOrderDetailsScreenState extends State<FoodOrderDetailsScreen> {
                     SizedBox(
                       height: 38.h,
                       child: ListView.builder(
-                        itemCount: (foodState as FoodDetails).orderDetails['products'].length,
+                        itemCount: (foodState as FoodUserDetails).orderDetails['products'].length,
                         shrinkWrap: true,
                         itemBuilder: (context, i) {
                           return Padding(

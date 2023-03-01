@@ -6,6 +6,7 @@ import 'package:sizer/sizer.dart';
 import '../../../logic/bloc/food_bloc.dart';
 import '../../router/app_router.dart';
 import '../../utils/custom_button.dart';
+import '../../utils/custom_print.dart';
 import '../../utils/custom_text.dart';
 import '../../utils/custom_text_field.dart';
 
@@ -25,8 +26,17 @@ class _FoodCheckoutAddressScreenState extends State<FoodCheckoutAddressScreen> {
   Widget build(BuildContext context) {
     return BlocBuilder<FoodBloc, FoodState>(
       builder: (context, foodState) {
-        nameController.text = (foodState as FoodDetails).name;
-        emailController.text = (foodState).email;
+        if((foodState as FoodDetails).orderDetails!={}){
+          nameController.text = (foodState).orderDetails['delivery']['name'];
+          emailController.text = (foodState).orderDetails['delivery']['email'];
+          phoneController.text = (foodState).orderDetails['delivery']['phone'];
+          addressController.text = (foodState).orderDetails['delivery']['address'];
+          pincodeController.text = (foodState).orderDetails['delivery']['pincode'];
+        }
+        else{
+          nameController.text = (foodState).name;
+          emailController.text = (foodState).email;
+        }
         return BlocBuilder<AppThemeCubit, AppThemeState>(
           builder: (context, themeState) {
             return SafeArea(

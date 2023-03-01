@@ -69,8 +69,19 @@ class FoodBloc extends Bloc<FoodEvent, FoodState> {
             }
 
             if(access){
-              emit(FoodUserDetails(name: name, email: event.email, password: event.password, cartCount: 0, cart: const [], orderDetails: {},
-                  phone: '', address: '', pincode: ''));
+
+              Map orderDetails = {};
+              String decodedMap = prefs.getString('orderDetails') ?? '';
+              if(decodedMap!=''){
+                orderDetails = json.decode(decodedMap);
+                customPrint.myCustomPrint('Stored order details: $orderDetails');
+                customPrint.myCustomPrint('Order details datatype: ${orderDetails.runtimeType}');
+              }
+              else{
+                customPrint.myCustomPrint('No order details stored');
+              }
+              emit(FoodUserDetails(name: name, email: event.email, password: event.password, cartCount: 0,
+                  cart: const [], orderDetails: orderDetails, phone: '', address: '', pincode: ''));
 
               ScaffoldMessenger.of(event.context).showSnackBar(
                   SnackBar(
@@ -89,7 +100,6 @@ class FoodBloc extends Bloc<FoodEvent, FoodState> {
                     content: Text('User not found!'),
                   )
               );
-
             }
           }
         }
@@ -397,7 +407,6 @@ class FoodBloc extends Bloc<FoodEvent, FoodState> {
         String name = event.name, email = event.email, password = (state as FoodDetails).password,
             phone = event.phone, address = event.address, pincode = event.pincode,
             mainIMG = (state as FoodDetails).mainIMG;
-        int cartCount = (state as FoodUserDetails).cartCount;
         double total = (state as FoodDetails).total, delivery = (state as FoodDetails).delivery,
             gst = (state as FoodDetails).gst, grandTotal = (state as FoodDetails).grandTotal;
         List<Map> cart = (state as FoodDetails).cart;
@@ -411,6 +420,11 @@ class FoodBloc extends Bloc<FoodEvent, FoodState> {
           'products': cart
         };
 
+        SharedPreferences prefs = await SharedPreferences.getInstance();
+        String encodedMap = json.encode(orderDetails);
+        customPrint.myCustomPrint(encodedMap);
+
+        prefs.setString('orderDetails', encodedMap);
 
         TextToSpeech tts = TextToSpeech();
         tts.speak('Your order is complete $name');
