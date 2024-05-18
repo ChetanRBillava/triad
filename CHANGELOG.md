@@ -23,6 +23,17 @@ Here we write the updates of future releases.
 ### Security
 
 
+## [1.2.7] - 18-05-2024
+
+### Added
+- Layout builder for web render
+- icon colors
+
+### Changed
+- Dimensions throughout the app to make it responsive with web/browser interface
+- Git repo
+
+
 ## [1.2.6] - 01-03-2023
 
 ### Added
@@ -167,7 +178,7 @@ Here we write the updates of future releases.
 
 ### Added
 - Assets folder to store images
-- Niveus logo in assets folder
+- New logo in assets folder
 - Core and Presentation main folders
 - Constants, Screens and Utils sub-folders
 - Constant files Bools, Enums, Images and Strings

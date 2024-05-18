@@ -1,9 +1,9 @@
 name: assignment
-description: My first flutter assignment at Niveus.
+description: Triad, a flutter application with 3 different UIs.
 
 publish_to: 'none'
 
-version: 1.2.6+17
+version: 1.2.7+18
 
 environment:
   sdk: '>=2.19.2 <3.0.0'
@@ -34,3 +34,4 @@ flutter:
     - assets/rc/
     - assets/mt/
     - assets/dio/
+    - assets/ntq/

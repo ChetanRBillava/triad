@@ -63,7 +63,8 @@ class _BikeTileState extends State<BikeTile> {
                               children: [
                                 Row(
                                   children: [
-                                    Icon(Icons.local_gas_station, size: 20.sp,),
+                                    Icon(Icons.local_gas_station, size: 20.sp, color: themeState.themeClass.iconPrimary),
+                                    const SizedBox(width: 4,),
                                     CustomText(
                                       textString: bikes[widget.index]['Mileage'],
                                       textFontSize: 16.sp,
@@ -73,7 +74,8 @@ class _BikeTileState extends State<BikeTile> {
                                 Container(height: 20.sp, width: 1.w, color: (themeState as AppThemeSet).themeClass.textColor_1,),
                                 Row(
                                   children: [
-                                    Icon(Icons.account_balance_wallet, size: 20.sp,),
+                                    Icon(Icons.account_balance_wallet, size: 20.sp, color: themeState.themeClass.iconPrimary),
+                                    const SizedBox(width: 4,),
                                     CustomText(
                                       textString: '₹${bikes[widget.index]['Amount']}/D',
                                       textFontSize: 16.sp,
@@ -83,7 +85,8 @@ class _BikeTileState extends State<BikeTile> {
                                 Container(height: 20.sp, width: 1.w, color: themeState.themeClass.textColor_1,),
                                 Row(
                                   children: [
-                                    Icon(Icons.stars, size: 20.sp,),
+                                    Icon(Icons.stars, size: 20.sp, color: themeState.themeClass.iconPrimary),
+                                    const SizedBox(width: 4,),
                                     CustomText(
                                       textString: bikes[widget.index]['Rating'],
                                       textFontSize: 16.sp,

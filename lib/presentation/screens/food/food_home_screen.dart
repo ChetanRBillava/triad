@@ -37,12 +37,12 @@ class _FoodHomeScreenState extends State<FoodHomeScreen> {
                       child: Icon(
                         Icons.home,
                         size: 20.sp,
-                        color: themeState.themeClass.white,
+                        color: themeState.themeClass.iconPrimary,
                       ),
                     ),
                     title: CustomText(
                       textString: 'Welcome ${context.read<FoodBloc>().state.props[0].toString()}',
-                      textColor: themeState.themeClass.white,
+                      textColor: themeState.themeClass.textColor_1,
                       fontWeight: FontWeight.bold,
                       overflow: TextOverflow.ellipsis,
                     ),
@@ -65,14 +65,14 @@ class _FoodHomeScreenState extends State<FoodHomeScreen> {
                         child: Icon(
                           Icons.shopping_cart,
                           size: 20.sp,
-                          color: themeState.themeClass.white,
+                          color: themeState.themeClass.iconPrimary,
                         ),
                       ),
                       Padding(
                         padding: EdgeInsets.only(right: 2.w),
                         child: CustomText(
                           textString: context.read<FoodBloc>().state.props[6].toString(),
-                          textColor: themeState.themeClass.white,
+                          textColor: themeState.themeClass.textColor_1,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -95,7 +95,7 @@ class _FoodHomeScreenState extends State<FoodHomeScreen> {
                           child: Icon(
                             Icons.assignment,
                             size: 20.sp,
-                            color: themeState.themeClass.white,
+                            color: themeState.themeClass.iconPrimary,
                           ),
                         ),
                       ),

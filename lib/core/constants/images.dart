@@ -1,5 +1,5 @@
 class AppImages{
-  static const logoGIF = 'assets/niveus.gif';
+  static const logo = 'assets/logo.png';
 
   ///bike
   static const re = 'assets/re/1.png';

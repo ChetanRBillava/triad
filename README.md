@@ -1,6 +1,6 @@
 # Assignment
 
-My first flutter assignment at Niveus.
+Triad, a flutter project with 3 different UIs and use cases.
 
 ## Requirement / Objective
 

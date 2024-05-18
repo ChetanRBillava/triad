@@ -89,11 +89,11 @@ BEGIN
     BEGIN
         BLOCK "040904e4"
         BEGIN
-            VALUE "CompanyName", "niveus.crb" "\0"
+            VALUE "CompanyName", "com.crb" "\0"
             VALUE "FileDescription", "assignment" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
             VALUE "InternalName", "assignment" "\0"
-            VALUE "LegalCopyright", "Copyright (C) 2023 niveus.crb. All rights reserved." "\0"
+            VALUE "LegalCopyright", "Copyright (C) 2023 com.crb. All rights reserved." "\0"
             VALUE "OriginalFilename", "assignment.exe" "\0"
             VALUE "ProductName", "assignment" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"

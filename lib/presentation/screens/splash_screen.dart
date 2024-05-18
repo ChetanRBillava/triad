@@ -55,28 +55,42 @@ class _SplashScreenState extends State<SplashScreen> with WidgetsBindingObserver
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<AppThemeCubit, AppThemeState>(
-      builder: (context, themeState) {
-        return SafeArea(
-            child: Scaffold(
-              backgroundColor: (themeState as AppThemeSet).themeClass.backgroundColor,
-              body: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Image.asset(AppImages.logoGIF),
-                  const CustomText(textString: 'App version: ${Strings.appVersion}'),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: CustomText(
-                      textString: 'Switch your device\'s theme to dark theme to experience the dark theme layout',
-                      textAlign: TextAlign.center, textFontSize: 10.sp,
-                    ),
+    return LayoutBuilder(builder: (context, constraints){
+      return BlocBuilder<AppThemeCubit, AppThemeState>(
+        builder: (context, themeState) {
+          return SafeArea(
+              child: Scaffold(
+                backgroundColor: (themeState as AppThemeSet).themeClass.backgroundColor,
+                body: SizedBox(
+                  width: 100.w, height: 100.h,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Image.asset(
+                        AppImages.logo,
+                        width: constraints.maxWidth > 700 ? 60.w : 100.w,
+                      ),
+                      CustomText(
+                        textString: 'App version: ${Strings.appVersion}',
+                        textFontSize: constraints.maxWidth > 700 ? 8.sp : 16.sp,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: CustomText(
+                          textString: 'Switch your device\'s theme to dark theme to experience the dark theme layout',
+                          textAlign: TextAlign.center,
+                          textFontSize: constraints.maxWidth > 700 ? 4.sp : 10.sp,
+                        ),
+                      ),
+                    ],
                   ),
-                ],
-              ),
-            )
-        );
-      },
+                ),
+              )
+          );
+        },
+      );
+    },
     );
   }
 }

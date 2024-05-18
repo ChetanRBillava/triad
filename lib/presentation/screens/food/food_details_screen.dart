@@ -30,10 +30,15 @@ class _FoodDetailsScreenState extends State<FoodDetailsScreen> {
                 backgroundColor: (themeState as AppThemeSet).themeClass.backgroundColor,
                 appBar: AppBar(
                   backgroundColor: themeState.themeClass.foodAppBarColor,
-                  automaticallyImplyLeading: true,
+                  leading: GestureDetector(
+                    onTap: (){
+                      Navigator.pop(context);
+                    },
+                    child: Icon(Icons.arrow_back, color: themeState.themeClass.iconPrimary,),
+                  ),
                   title: CustomText(
                     textString: 'Product details'.toUpperCase(),
-                    textColor: themeState.themeClass.white,
+                    textColor: themeState.themeClass.textColor_1,
                     fontWeight: FontWeight.bold,
                   ),
                   centerTitle: true,
@@ -45,14 +50,14 @@ class _FoodDetailsScreenState extends State<FoodDetailsScreen> {
                       child: Icon(
                         Icons.shopping_cart,
                         size: 20.sp,
-                        color: themeState.themeClass.white,
+                        color: themeState.themeClass.iconPrimary,
                       ),
                     ),
                     Padding(
                       padding: EdgeInsets.only(right: 2.w),
                       child: CustomText(
                         textString: context.read<FoodBloc>().state.props[6].toString(),
-                        textColor: themeState.themeClass.white,
+                        textColor: themeState.themeClass.textColor_1,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -75,7 +80,7 @@ class _FoodDetailsScreenState extends State<FoodDetailsScreen> {
                         child: Icon(
                           Icons.assignment,
                           size: 20.sp,
-                          color: themeState.themeClass.white,
+                          color: themeState.themeClass.iconPrimary,
                         ),
                       ),
                     ),

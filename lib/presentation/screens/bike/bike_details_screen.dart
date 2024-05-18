@@ -28,7 +28,12 @@ class _BikeDetailsScreenState extends State<BikeDetailsScreen> {
             backgroundColor: (themeState as AppThemeSet).themeClass.bikeBackgroundColor,
             appBar: AppBar(
               backgroundColor: themeState.themeClass.bikeAppBarColor,
-              automaticallyImplyLeading: true,
+              leading: GestureDetector(
+                onTap: (){
+                  Navigator.pop(context);
+                },
+                child: Icon(Icons.arrow_back, color: themeState.themeClass.iconPrimary,),
+              ),
               title: CustomText(
                 textString: 'Bike details',
                 textColor: themeState.themeClass.white,

@@ -37,12 +37,12 @@ class _BikeHomeScreenState extends State<BikeHomeScreen> {
                     child: Icon(
                       Icons.home,
                       size: 20.sp,
-                      color: themeState.themeClass.white,
+                      color: themeState.themeClass.iconPrimary,
                     ),
                   ),
                   title: CustomText(
                     textString: 'Welcome ${(bikeState as BikeUserDetails).name}',
-                    textColor: themeState.themeClass.white,
+                    textColor: themeState.themeClass.textColor_1,
                     fontWeight: FontWeight.bold,
                   ),
                   centerTitle: true,
