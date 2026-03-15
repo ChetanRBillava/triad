@@ -23,6 +23,12 @@ Here we write the updates of future releases.
 ### Security
 
 
+## [1.2.8] - 15-03-2026
+
+### Changed
+- Migration to Flutter 3
+
+
 ## [1.2.7] - 18-05-2024
 
 ### Added

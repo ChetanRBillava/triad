@@ -11,3 +11,9 @@ GeneratedPluginRegistrant.java
 key.properties
 **/*.keystore
 **/*.jks
+
+# NDK/Build Cache
+**/app/.cxx/
+**/.cxx/
+**/.gradle/
+**/build/
